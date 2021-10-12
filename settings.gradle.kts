@@ -1,6 +1,6 @@
 pluginManagement {
     repositories {
-        google() // Required if you use infrastructure-android
+        google()
         gradlePluginPortal()
     }
 
@@ -14,4 +14,6 @@ pluginManagement {
 }
 
 rootProject.name = "encrypted-datastore"
-include("lib")
+include(
+    "encrypted-datastore",
+)
