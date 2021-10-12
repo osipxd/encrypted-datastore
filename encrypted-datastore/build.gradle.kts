@@ -3,9 +3,9 @@ plugins {
     id("redmadrobot.publish")
 }
 
-description = "Extensions to encrypt DataStore"
+description = "Extensions to encrypt DataStore using Tink"
 group = "io.github.osipxd"
-version = "1.0.0-alpha01"
+version = "1.0.0-alpha02"
 
 val hackProject = project(":encrypted-datastore-internal-visibility-hack")
 dependencies {
