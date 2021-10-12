@@ -1,9 +1,12 @@
+import com.redmadrobot.build.dsl.*
+
 plugins {
     id("redmadrobot.kotlin-library")
     id("redmadrobot.publish")
     id("com.github.johnrengelman.shadow") version "7.1.0"
 }
 
+description = "Extensions to encrypt DataStore"
 group = "io.github.osipxd"
 version = "1.0.0-alpha01"
 
@@ -31,11 +34,30 @@ tasks.shadowJar {
     }
 }
 
+publishing {
+    repositories {
+        maven("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/") {
+            name = "ossrh"
+            credentials(PasswordCredentials::class)
+        }
+    }
+}
+
 afterEvaluate {
     publishing {
         publications.getByName<MavenPublication>("maven") {
             // Exclude plain jar, leave shadowJar only
             setArtifacts(artifacts.filterNot { it.extension == "jar" && it.classifier == null })
+
+            pom {
+                setGitHubProject("osipxd/encrypted-datastore")
+                licenses {
+                    mit()
+                }
+                developers {
+                    developer(id = "osipxd", name = "Osip Fatkullin", email = "osip.fatkullin@gmail.com")
+                }
+            }
         }
     }
 }
