@@ -58,7 +58,8 @@ val prefsDataStore = PreferenceDataStoreFactory.createEncrypted(aead) {
 
 ### Thanks
 
-Artem Kulakov ([Fi5t]) for his [example][secured-datastore] of DataStore encryption.
+- Artem Kulakov ([Fi5t]), for his [example][secured-datastore] of DataStore encryption.
+- God, for posibility to [hack] Kotlin internal visibility modifier 
 
 ## License
 
@@ -71,3 +72,4 @@ Artem Kulakov ([Fi5t]) for his [example][secured-datastore] of DataStore encrypt
 [tink]: https://github.com/google/tink
 [secured-datastore]: https://github.com/Fi5t/secured-datastore
 [fi5t]: https://github.com/Fi5t
+[hack]: encrypted-datastore-internal-visibility-hack/src/main/java/io/github/osipxd/datastore/encrypted/PreferenceDataStoreHack.java
