@@ -36,7 +36,7 @@ val aead = AndroidKeysetManager.Builder()
     .getPrimitive(Aead::class.java)
 ```
 
-Then you can make any DataStore Serializer encrypted using extension-function:
+Then you can make any DataStore Serializer encrypted using extension-function `Serializer<T>.encrypted(Aead)`:
 
 ```kotlin
 object ProtoProfileSerializer : Serializer<Profile> {
