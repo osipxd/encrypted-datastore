@@ -56,6 +56,10 @@ val prefsDataStore = PreferenceDataStoreFactory.createEncrypted(aead) {
 }
 ```
 
+### Thanks
+
+Artem Kulakov (@Fi5t) for his [example][secured-datastore] of DataStore encryption.
+
 ## License
 
 [MIT][license]
@@ -65,3 +69,4 @@ val prefsDataStore = PreferenceDataStoreFactory.createEncrypted(aead) {
 [license]: LICENSE
 
 [tink]: https://github.com/google/tink
+[secured-datastore]: https://github.com/Fi5t/secured-datastore
