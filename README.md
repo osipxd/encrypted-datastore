@@ -24,7 +24,7 @@ dependencies {
 
 ## Usage
 
-First, you need `Aead` object to encrypt DataStore or you may use already created one:
+First, you need to create `Aead` object to encrypt DataStore or you may use already created one:
 
 ```kotlin
 val aead = AndroidKeysetManager.Builder()
@@ -59,7 +59,7 @@ val prefsDataStore = PreferenceDataStoreFactory.createEncrypted(aead) {
 ### Thanks
 
 - Artem Kulakov ([Fi5t]), for his [example][secured-datastore] of DataStore encryption.
-- God, for posibility to [hack] Kotlin internal visibility modifier 
+- Gods of Kotlin, for posibility to [hack] `internal` visibility modifier 
 
 ## License
 
