@@ -13,7 +13,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import java.io.File
 
-@Suppress("unused")
+@Suppress("UnusedReceiverParameter")
 public fun PreferenceDataStoreFactory.createEncrypted(
     aead: Aead,
     corruptionHandler: ReplaceFileCorruptionHandler<Preferences>? = null,
