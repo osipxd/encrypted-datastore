@@ -1,0 +1,17 @@
+[versions]
+
+kotlin = "1.7.21"
+datastore = "1.0.0"
+infrastructure = "0.17"
+
+[libraries]
+
+androidx-datastore = { module = "androidx.datastore:datastore-core", version.ref = "datastore" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences-core", version.ref = "datastore" }
+tink = "com.google.crypto.tink:tink-android:1.7.0"
+
+[plugins]
+
+rmr-kotlinLibrary = { id = "com.redmadrobot.kotlin-library", version.ref = "infrastructure" }
+rmr-publish = { id = "com.redmadrobot.publish", version.ref = "infrastructure" }
+rmr-publish-config = { id = "com.redmadrobot.publish-config", version.ref = "infrastructure" }

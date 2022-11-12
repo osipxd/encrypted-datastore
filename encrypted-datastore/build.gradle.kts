@@ -1,18 +1,20 @@
+import com.redmadrobot.build.dsl.ossrh
+
 plugins {
-    id("redmadrobot.kotlin-library")
-    id("redmadrobot.publish")
+    id("com.redmadrobot.kotlin-library")
+    id("com.redmadrobot.publish")
 }
 
 description = "Extensions to encrypt DataStore using Tink"
 group = "io.github.osipxd"
-version = "1.0.0-alpha02"
+version = "${libs.versions.datastore.get()}-alpha02"
 
 val hackProject = project(":encrypted-datastore-internal-visibility-hack")
 dependencies {
-    api(kotlin("stdlib"))
-    api("androidx.datastore:datastore-core:1.0.0")
-    api("androidx.datastore:datastore-preferences-core:1.0.0")
-    api("com.google.crypto.tink:tink-android:1.6.1")
+    api(kotlin("stdlib", version = libs.versions.kotlin.get()))
+    api(libs.androidx.datastore)
+    api(libs.androidx.datastore.preferences)
+    api(libs.tink)
 
     // It will be embedded into jar and shouldn't be added to pom.xml file
     compileOnly(hackProject)
@@ -29,9 +31,6 @@ tasks.jar {
 
 publishing {
     repositories {
-        maven("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/") {
-            name = "ossrh"
-            credentials(PasswordCredentials::class)
-        }
+        ossrh { credentials(PasswordCredentials::class) }
     }
 }

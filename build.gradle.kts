@@ -1,7 +1,8 @@
 import com.redmadrobot.build.dsl.*
 
 plugins {
-    id("redmadrobot.root-project") version "0.12.1"
+    alias(libs.plugins.rmr.kotlinLibrary) apply false
+    alias(libs.plugins.rmr.publish.config)
 }
 
 redmadrobot {
