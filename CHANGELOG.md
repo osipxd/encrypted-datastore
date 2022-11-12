@@ -2,6 +2,7 @@
 
 ### Dependencies
 
+- Kotlin `1.5.30` → `1.7.21`
 - [Tink](https://github.com/google/tink/releases/tag/v1.7.0) `1.6.1` → `1.7.0`
 
 ### Housekeeping

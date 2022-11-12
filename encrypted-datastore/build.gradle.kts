@@ -11,7 +11,7 @@ version = "1.0.0-alpha02"
 
 val hackProject = project(":encrypted-datastore-internal-visibility-hack")
 dependencies {
-    api(kotlin("stdlib"))
+    api(kotlin("stdlib", version = "1.7.21"))
     api("androidx.datastore:datastore-core:1.0.0")
     api("androidx.datastore:datastore-preferences-core:1.0.0")
     api("com.google.crypto.tink:tink-android:1.7.0")
