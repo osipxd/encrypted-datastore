@@ -6,8 +6,6 @@ plugins {
 }
 
 description = "Extensions to encrypt DataStore using Tink"
-group = "io.github.osipxd"
-version = "${libs.versions.datastore.get()}-alpha02"
 
 val hackProject = project(":encrypted-datastore-internal-visibility-hack")
 dependencies {
