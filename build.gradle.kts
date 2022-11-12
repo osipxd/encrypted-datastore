@@ -1,7 +1,7 @@
 import com.redmadrobot.build.dsl.*
 
 plugins {
-    id("redmadrobot.root-project") version "0.12.1"
+    id("com.redmadrobot.publish-config") version "0.17"
 }
 
 redmadrobot {

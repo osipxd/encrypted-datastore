@@ -1,6 +1,8 @@
+import com.redmadrobot.build.dsl.ossrh
+
 plugins {
-    id("redmadrobot.kotlin-library")
-    id("redmadrobot.publish")
+    id("com.redmadrobot.kotlin-library") version "0.17"
+    id("com.redmadrobot.publish")
 }
 
 description = "Extensions to encrypt DataStore using Tink"
@@ -29,9 +31,6 @@ tasks.jar {
 
 publishing {
     repositories {
-        maven("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/") {
-            name = "ossrh"
-            credentials(PasswordCredentials::class)
-        }
+        ossrh { credentials(PasswordCredentials::class) }
     }
 }
