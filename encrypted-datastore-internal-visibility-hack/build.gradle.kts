@@ -10,8 +10,3 @@ java {
 dependencies {
     implementation(libs.androidx.datastore.preferences)
 }
-
-repositories {
-    mavenCentral()
-    google()
-}

@@ -1,5 +1,12 @@
 ## [Unreleased]
 
+:warning: **Breaking change:** `PreferenceDataStoreFactory.createEncrypted` extension has been moved to separated module. To continue use it, change the dependency module in your build script:
+
+```diff
+-implmentation("io.github.osipxd:encrypted-datastore:...")
++implmentation("io.github.osipxd:encrypted-datastore-preferences:...")
+```
+
 ### Fixed
 
 - Fixed crash when DataStore can not be decrypted (#1)
