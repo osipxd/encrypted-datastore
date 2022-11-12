@@ -18,10 +18,6 @@ dependencies {
     compileOnly(hackProject)
 }
 
-repositories {
-    google()
-}
-
 // Embed hack into the jar
 tasks.jar {
     from(hackProject.sourceSets["main"].output)
