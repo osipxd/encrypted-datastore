@@ -8,7 +8,7 @@ java {
 }
 
 dependencies {
-    implementation("androidx.datastore:datastore-preferences-core:1.0.0")
+    implementation(libs.androidx.datastore.preferences)
 }
 
 repositories {
