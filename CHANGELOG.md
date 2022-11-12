@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+### Fixed
+
+- Fixed crash when DataStore can not be decrypted (#1)
+
 ### Dependencies
 
 - Kotlin `1.5.30` → `1.7.21`
