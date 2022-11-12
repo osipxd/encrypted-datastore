@@ -12,7 +12,7 @@ dependencies {
     api(kotlin("stdlib"))
     api("androidx.datastore:datastore-core:1.0.0")
     api("androidx.datastore:datastore-preferences-core:1.0.0")
-    api("com.google.crypto.tink:tink-android:1.6.1")
+    api("com.google.crypto.tink:tink-android:1.7.0")
 
     // It will be embedded into jar and shouldn't be added to pom.xml file
     compileOnly(hackProject)
