@@ -1,5 +1,6 @@
 package io.github.osipxd.datastore.encrypted
 
+import androidx.datastore.core.CorruptionException
 import androidx.datastore.core.Serializer
 import com.google.crypto.tink.Aead
 import java.io.ByteArrayOutputStream
@@ -13,7 +14,9 @@ internal class EncryptedSerializer<T>(
 
     override suspend fun readFrom(input: InputStream): T {
         val encryptedBytes = input.readBytes()
-        val bytes = if (encryptedBytes.isEmpty()) encryptedBytes else aead.decrypt(encryptedBytes, null)
+        val bytes = runCatching {
+            if (encryptedBytes.isEmpty()) encryptedBytes else aead.decrypt(encryptedBytes, null)
+        }.getOrElse { throw CorruptionException("DataStore decryption failed", it) }
 
         return delegate.readFrom(bytes.inputStream())
     }
@@ -25,6 +28,7 @@ internal class EncryptedSerializer<T>(
         }
         val encryptedBytes = aead.encrypt(bytes, null)
 
+        // This method is called on Dispatchers.IO by default
         @Suppress("BlockingMethodInNonBlockingContext")
         output.write(encryptedBytes)
     }
