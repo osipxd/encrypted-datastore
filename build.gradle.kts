@@ -5,6 +5,9 @@ plugins {
     alias(libs.plugins.rmr.publish.config)
 }
 
+group = "io.github.osipxd"
+version = "${libs.versions.datastore.get()}-alpha02"
+
 redmadrobot {
     publishing {
         signArtifacts.set(true)
