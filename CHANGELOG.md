@@ -9,8 +9,8 @@
 
 #### Streaming serializer
 
-Introduced new extension `Serializer.encrypted(StreamingAead)` to encrypt DataStore in streaming manneer.
-It is recommended to use this extension instead of version with `Aead`.
+Introduced new extension-function `Serializer.encrypted(StreamingAead)` to encrypt DataStore in streaming manneer.
+Old extension-function with `Aead` is not planned to be removed yet, but for all new code it is recommended to use the new function.
 You can obtain `StreamingAead` similar to `Aead`:
 
 ```kotlin
@@ -31,6 +31,14 @@ val handle = AndroidKeysetManager.Builder()
 //val aead = handle.getPrimitive(Aead::class.java)
 val streamingAead = handle.getPrimitive(StreamingAead::class.java)
 ```
+
+> **ATTENTION!**
+> You can not use `StreamingAead` to decrypt data encrypted with `Aead`,
+> so you can not just replace `Aead` with `StreamingAead` without migration.
+> To not lose your previously encrypted data, you have three options:
+> 1. **Migration** - add fallback for `StreamingAead` using function `StreamingAead.withDecryptionFallback(Aead)`
+> 2. **Do nothing** - continue to use `Aead`
+> 3. **Destructive migration** - specify `CorruptionHandler` to replace old content with something else
 
 ### Fixed
 

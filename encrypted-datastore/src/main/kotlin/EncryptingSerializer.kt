@@ -4,6 +4,7 @@ import androidx.datastore.core.CorruptionException
 import androidx.datastore.core.Serializer
 import com.google.crypto.tink.Aead
 import com.google.crypto.tink.StreamingAead
+import io.github.osipxd.datastore.encrypted.migration.isProbablyEncryptedWithAeadException
 import java.io.*
 import java.security.GeneralSecurityException
 
@@ -12,7 +13,7 @@ public sealed interface EncryptingSerializer<T> : Serializer<T>
 
 internal abstract class WrappingEncryptingSerializer<T> : EncryptingSerializer<T> {
 
-    abstract val delegate: Serializer<T>
+    protected abstract val delegate: Serializer<T>
 
     final override val defaultValue: T
         get() = delegate.defaultValue
@@ -53,9 +54,13 @@ internal class AeadEncryptingSerializer<T>(
 
 @Deprecated(
     "Use version of this method with StreamingAead instead of Aead",
-    ReplaceWith("this.encrypted(streamingAead)"),
+    ReplaceWith(
+        "this.encrypted(streamingAead.withDecryptionFallback(aead))",
+        "io.github.osipxd.datastore.encrypted.migration.withDecryptionFallback"
+    ),
 )
-public fun <T> Serializer<T>.encrypted(aead: Aead): Serializer<T> = AeadEncryptingSerializer(aead, delegate = this)
+public fun <T> Serializer<T>.encrypted(aead: Aead): EncryptingSerializer<T> =
+    AeadEncryptingSerializer(aead, delegate = this)
 
 internal class StreamingAeadEncryptingSerializer<T>(
     private val streamingAead: StreamingAead,
@@ -64,7 +69,24 @@ internal class StreamingAeadEncryptingSerializer<T>(
 ) : WrappingEncryptingSerializer<T>() {
 
     override suspend fun readEncryptedFrom(input: InputStream): T {
-        return delegate.readFrom(streamingAead.newDecryptingStream(input, associatedData))
+        return try {
+            delegate.readFrom(streamingAead.newDecryptingStream(input, associatedData))
+        } catch (e: IOException) {
+            throw e.toFriendlyException()
+        }
+    }
+
+    private fun IOException.toFriendlyException(): Exception {
+        return if (isProbablyEncryptedWithAeadException()) {
+            CorruptionException(
+                "Can not decrypt DataStore using StreamingAead.\n" +
+                        "Probably you should add decryption fallback to Aead:\n" +
+                        "https://github.com/osipxd/encrypted-datastore#migration-to-streamingaead",
+                cause = this,
+            )
+        } else {
+            this
+        }
     }
 
     override suspend fun writeTo(t: T, output: OutputStream) {
