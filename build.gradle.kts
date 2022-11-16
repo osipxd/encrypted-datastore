@@ -1,8 +1,7 @@
 import com.redmadrobot.build.dsl.*
 
 plugins {
-    alias(libs.plugins.rmr.kotlinLibrary) apply false
-    alias(libs.plugins.rmr.publish.config)
+    com.redmadrobot.`publish-config`
 }
 
 group = "io.github.osipxd"

@@ -1,8 +1,5 @@
-import com.redmadrobot.build.dsl.ossrh
-
 plugins {
-    id("com.redmadrobot.kotlin-library")
-    id("com.redmadrobot.publish")
+    convention.library
 }
 
 description = "Extensions to encrypt DataStore Preferences using Tink"
@@ -19,10 +16,4 @@ dependencies {
 // Embed hack into the jar
 tasks.jar {
     from(hackProject.sourceSets["main"].output)
-}
-
-publishing {
-    repositories {
-        ossrh { credentials(PasswordCredentials::class) }
-    }
 }
