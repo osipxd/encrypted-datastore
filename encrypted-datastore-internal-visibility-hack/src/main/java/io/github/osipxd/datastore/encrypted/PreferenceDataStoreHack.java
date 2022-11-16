@@ -15,7 +15,6 @@ import org.jetbrains.annotations.NotNull;
 class PreferenceDataStoreHack {
 
     static Serializer<Preferences> serializer = PreferencesSerializer.INSTANCE;
-    static String fileExtension = PreferencesSerializer.INSTANCE.getFileExtension();
 
     private PreferenceDataStoreHack() {
         // Shouldn't be instantiated
