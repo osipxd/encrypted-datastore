@@ -2,9 +2,11 @@ package io.github.osipxd.datastore.encrypted
 
 import androidx.datastore.core.CorruptionException
 import androidx.datastore.core.Serializer
+import androidx.datastore.core.handlers.ReplaceFileCorruptionHandler
 import com.google.crypto.tink.Aead
 import com.google.crypto.tink.StreamingAead
 import io.github.osipxd.datastore.encrypted.migration.isProbablyEncryptedWithAeadException
+import io.github.osipxd.datastore.encrypted.migration.withDecryptionFallback
 import java.io.*
 import java.security.GeneralSecurityException
 
@@ -52,6 +54,17 @@ internal class AeadEncryptingSerializer<T>(
     }
 }
 
+/**
+ * Adds encryption to [this] serializer using the given [Aead].
+ *
+ * **Deprecated** in favor of version with [StreamingAead].
+ * You can not use to decrypt data encrypted with `Aead`,
+ * so you can not just replace `Aead` with `StreamingAead` without migration.
+ * To not lose your previously encrypted data, you have three options:
+ *  1. **Migration** - add fallback for `StreamingAead` using function [StreamingAead.withDecryptionFallback]
+ *  2. **Do nothing** - continue to use this method `Aead`
+ *  3. **Destructive migration** - specify [ReplaceFileCorruptionHandler] to replace old content with something else
+ */
 @Deprecated(
     "Use version of this method with StreamingAead instead of Aead",
     ReplaceWith(
@@ -94,6 +107,14 @@ internal class StreamingAeadEncryptingSerializer<T>(
     }
 }
 
+/**
+ * Adds encryption to [this] serializer using the given [StreamingAead] and [associatedData]
+ * as an associated authenticated data.
+ *
+ * Associated data is authenticated but not encrypted. In some cases, binding ciphertext
+ * to associated data strengthens security:
+ * [I want to bind ciphertext to its context](https://developers.google.com/tink/bind-ciphertext)
+ */
 public fun <T> Serializer<T>.encrypted(
     streamingAead: StreamingAead,
     associatedData: ByteArray = byteArrayOf(),
