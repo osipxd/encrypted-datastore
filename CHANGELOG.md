@@ -1,12 +1,5 @@
 ## [Unreleased]
 
-:warning: **Breaking change:** `PreferenceDataStoreFactory.createEncrypted` extension has been moved to separated module. To continue use it, change the dependency module in your build script:
-
-```diff
--implmentation("io.github.osipxd:encrypted-datastore:...")
-+implmentation("io.github.osipxd:encrypted-datastore-preferences:...")
-```
-
 #### Streaming serializer
 
 Introduced new extension-function `Serializer.encrypted(StreamingAead)` to encrypt DataStore in streaming manneer.
@@ -39,6 +32,18 @@ val streamingAead = handle.getPrimitive(StreamingAead::class.java)
 > 1. **Migration** - add fallback for `StreamingAead` using function `StreamingAead.withDecryptionFallback(Aead)`
 > 2. **Do nothing** - continue to use `Aead`
 > 3. **Destructive migration** - specify `CorruptionHandler` to replace old content with something else
+
+#### New module `encrypted-datastore-preferences`
+
+:warning: **Breaking change:** 
+
+All stuff related to Preference DataStore was moved to `io.github.osipxd:encrypted-datastore-preferences`.
+To continue use it, change the dependency module in your build script:
+
+```diff
+-implmentation("io.github.osipxd:encrypted-datastore:...")
++implmentation("io.github.osipxd:encrypted-datastore-preferences:...")
+```
 
 ### Fixed
 
