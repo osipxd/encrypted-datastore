@@ -6,8 +6,10 @@ infrastructure = "0.17"
 
 [libraries]
 
-androidx-datastore = { module = "androidx.datastore:datastore-core", version.ref = "datastore" }
-androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences-core", version.ref = "datastore" }
+androidx-datastore = { module = "androidx.datastore:datastore", version.ref = "datastore" }
+androidx-datastore-core = { module = "androidx.datastore:datastore-core", version.ref = "datastore" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }
+androidx-datastore-preferences-core = { module = "androidx.datastore:datastore-preferences-core", version.ref = "datastore" }
 tink = "com.google.crypto.tink:tink-android:1.7.0"
 
 infrastructure-kotlin = { module = "com.redmadrobot.build:infrastructure-kotlin", version.ref = "infrastructure" }
