@@ -1,5 +1,6 @@
 plugins {
-    convention.library
+    com.redmadrobot.`kotlin-library`
+    convention.publish
 }
 
 description = "Extensions to encrypt DataStore using Tink"
