@@ -1,29 +1,39 @@
 ## [Unreleased]
 
-#### Streaming serializer
+#### More high-level library `security-crypto-datastore`
 
-Introduced new extension-function `Serializer.encrypted(StreamingAead)` to encrypt DataStore in streaming manneer.
-Old extension-function with `Aead` is not planned to be removed yet, but for all new code it is recommended to use the new function.
-You can obtain `StreamingAead` similar to `Aead`:
+New library provides more simple and less error-prone API to create encrypted DataStores.
+All Tink-related stuff hidden from you in `security-crypto` library, and all you should do is wrap `File` with `EncryptedFile`:
 
 ```kotlin
-// Remember to initialize Tink
-//AeadConfig.register()
-StreamingAeadConfig.register()
-
-val handle = AndroidKeysetManager.Builder()
-    .withSharedPref(context, "master_keyset", "master_key_preference")
-    // Change key template AES256_GCM -> AES256_GCM_HKDF_4KB
-    //.withKeyTemplate(KeyTemplates.get("AES256_GCM"))
-    .withKeyTemplate(KeyTemplates.get("AES256_GCM_HKDF_4KB"))
-    .withMasterKeyUri("android-keystore://master_key")
-    .build()
-    .keysetHandle
-
-// Get StreamingAead instead of Aead
-//val aead = handle.getPrimitive(Aead::class.java)
-val streamingAead = handle.getPrimitive(StreamingAead::class.java)
+val dataStore = DataStoreFactory.createEncrypted(serializer) {
+    EncryptedFile.Builder(
+        context.dataStoreFile("filename"),
+        context,
+        MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC),
+        EncryptedFile.FileEncryptionScheme.AES256_GCM_HKDF_4KB
+    ).build()
+}
 ```
+
+Or even simpler, if you use `security-crypto-ktx:1.1.0`:
+
+```kotlin
+val dataStore = DataStoreFactory.createEncrypted(serializer) {
+    EncryptedFile(
+        context = context,
+        file = context.dataStoreFile("filename"),
+        masterKey = MasterKey(context)
+    )
+}
+```
+
+See the [Migration guide](README.md#migration).
+
+#### Streaming serializer
+
+Introduced new extension-function `Serializer.encrypted(StreamingAead)` to encrypt DataStore in streaming manner.
+Old extension-function with `Aead` is not planned to be removed yet, but for all new code it is recommended to use the new function or migrate to the `security-crypto-datastore`.
 
 > **ATTENTION!**
 > You can not use `StreamingAead` to decrypt data encrypted with `Aead`,
