@@ -14,4 +14,5 @@ include(
     "encrypted-datastore-preferences",
     "encrypted-datastore-internal-visibility-hack",
     "security-crypto-datastore",
+    "security-crypto-datastore-preferences",
 )
