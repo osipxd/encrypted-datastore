@@ -1,13 +1,22 @@
-import com.redmadrobot.build.dsl.*
+import com.redmadrobot.build.dsl.developer
+import com.redmadrobot.build.dsl.mit
+import com.redmadrobot.build.dsl.setGitHubProject
 
 plugins {
     com.redmadrobot.`publish-config`
+    com.redmadrobot.`android-config`
 }
 
-group = "io.github.osipxd"
-version = "${libs.versions.datastore.get()}-alpha02"
+val datastoreVersion = libs.versions.datastore.get()
+subprojects {
+    group = "io.github.osipxd"
+    version = "$datastoreVersion-alpha03"
+}
 
 redmadrobot {
+    // Min SDK should be aligned with min SDK in androidx.security:security-crypto
+    android.minSdk.set(21)
+
     publishing {
         signArtifacts.set(true)
 

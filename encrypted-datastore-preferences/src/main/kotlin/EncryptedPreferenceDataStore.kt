@@ -19,13 +19,9 @@ import java.io.File
 /**
  * Creates preference DataStore encrypted using the given [aead].
  *
- * **Deprecated** in favor of version with [StreamingAead].
- * You can not use to decrypt data encrypted with `Aead`,
- * so you can not just replace `Aead` with `StreamingAead` without migration.
- * To not lose your previously encrypted data, you have three options:
- *  1. **Migration** - add fallback for `StreamingAead` using function [StreamingAead.withDecryptionFallback]
- *  2. **Do nothing** - continue to use this method `Aead`
- *  3. **Destructive migration** - specify [ReplaceFileCorruptionHandler] to replace old content with something else
+ * **Deprecated.**
+ * It is recommended to migrate to `security-crypto-datastore` library:
+ * [Migration guide](https://github.com/osipxd/encrypted-datastore#migration)
  */
 @Deprecated("Use version of this method with StreamingAead instead of Aead")
 @Suppress("UnusedReceiverParameter")

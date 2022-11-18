@@ -58,7 +58,10 @@ internal class AeadEncryptingSerializer<T>(
  * Adds encryption to [this] serializer using the given [Aead].
  *
  * **Deprecated** in favor of version with [StreamingAead].
- * You can not use to decrypt data encrypted with `Aead`,
+ * Consider to migrate to `security-crypto-datastore` library:
+ * [Migration guide](https://github.com/osipxd/encrypted-datastore#migration).
+ *
+ * You can not use `StreamingAead` to decrypt data encrypted with `Aead`,
  * so you can not just replace `Aead` with `StreamingAead` without migration.
  * To not lose your previously encrypted data, you have three options:
  *  1. **Migration** - add fallback for `StreamingAead` using function [StreamingAead.withDecryptionFallback]
@@ -94,7 +97,7 @@ internal class StreamingAeadEncryptingSerializer<T>(
             CorruptionException(
                 "Can not decrypt DataStore using StreamingAead.\n" +
                         "Probably you should add decryption fallback to Aead:\n" +
-                        "https://github.com/osipxd/encrypted-datastore#migration-to-streamingaead",
+                        "https://github.com/osipxd/encrypted-datastore#migration",
                 cause = this,
             )
         } else {
