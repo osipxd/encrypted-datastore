@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [1.0.0-alpha03] - 2022.11.18
+
 #### More high-level library `security-crypto-datastore`
 
 New library provides more simple and less error-prone API to create encrypted DataStores.
@@ -70,4 +72,5 @@ To continue use it, change the dependency module in your build script:
 - gradle-infrastructure `0.12.1` → `0.17`
 - Migrate dependencies to version catalogs
 
-[unreleased]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha02...main
+[unreleased]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha03...main
+[v1.0.0-alpha03]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha02...v1.0.0-alpha03
