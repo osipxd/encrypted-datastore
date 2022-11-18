@@ -63,7 +63,7 @@ val dataStore = DataStoreFactory.createEncrypted(serializer) {
 Similarly, you can create Preferences DataStore:
 
 ```kotlin
-val dataStore = DataStoreFactory.createEncrypted(serializer) {
+val dataStore = PreferenceDataStoreFactory.createEncrypted {
     EncryptedFile.Builder(
         // The file should have extension .preferences_pb
         context.dataStoreFile("filename.preferences_pb"),
