@@ -49,7 +49,7 @@ public fun PreferenceDataStoreFactory.createEncrypted(
     corruptionHandler: ReplaceFileCorruptionHandler<Preferences>? = null,
     migrations: List<DataMigration<Preferences>> = listOf(),
     scope: CoroutineScope = CoroutineScope(Dispatchers.IO + SupervisorJob()),
-    encryptionOptions: EncryptedDataStoreOptions.() -> Unit,
+    encryptionOptions: EncryptedDataStoreOptions.() -> Unit = {},
     produceFile: () -> EncryptedFile,
 ): DataStore<Preferences> {
     val delegate = DataStoreFactory.createEncrypted(
