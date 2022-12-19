@@ -49,6 +49,8 @@ val dataStore = DataStoreFactory.createEncrypted(serializer) {
 <details>
 <summary>Or even simpler, if you use <code>security-crypto-ktx:1.1.0</code></summary>
 
+> :warning: `security-crypto-ktx 1.1.0` is in alpha at the moment this library released, so use it at your own risk
+
 ```kotlin
 val dataStore = DataStoreFactory.createEncrypted(serializer) {
     EncryptedFile(
@@ -76,6 +78,8 @@ val dataStore = PreferenceDataStoreFactory.createEncrypted {
 
 <details>
 <summary>Or even simpler, if you use <code>security-crypto-ktx:1.1.0</code></summary>
+
+> :warning: `security-crypto-ktx 1.1.0` is in alpha at the moment this library released, so use it at your own risk
 
 ```kotlin
 val dataStore = PreferenceDataStoreFactory.createEncrypted {
@@ -142,6 +146,8 @@ val dataStore = DataStoreFactory.createEncrypted(
 
 <details>
 <summary>Or even simpler, if you use <code>security-crypto-ktx:1.1.0</code></summary>
+
+> :warning: `security-crypto-ktx 1.1.0` is in alpha at the moment this library released, so use it at your own risk
 
 ```kotlin
 val dataStore = DataStoreFactory.createEncrypted(
