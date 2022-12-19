@@ -1,5 +1,10 @@
 ## [Unreleased]
 
+### Fixed
+
+- Fixed the case when data can not be read if output stream was not closed in serializer (#10)
+- Added default value for parameter `encryptionOptions` in `PreferenceDataStoreFactory.createEncrypted` (#12)
+
 ## [1.0.0-alpha03] - 2022.11.18
 
 #### More high-level library `security-crypto-datastore`
@@ -73,4 +78,4 @@ To continue use it, change the dependency module in your build script:
 - Migrate dependencies to version catalogs
 
 [unreleased]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha03...main
-[v1.0.0-alpha03]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha02...v1.0.0-alpha03
+[1.0.0-alpha03]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha02...v1.0.0-alpha03
