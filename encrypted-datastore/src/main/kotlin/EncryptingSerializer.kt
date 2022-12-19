@@ -86,7 +86,9 @@ internal class StreamingAeadEncryptingSerializer<T>(
 
     override suspend fun readEncryptedFrom(input: InputStream): T {
         return try {
-            delegate.readFrom(streamingAead.newDecryptingStream(input, associatedData))
+            streamingAead.newDecryptingStream(input, associatedData).use { decryptingStream ->
+                delegate.readFrom(decryptingStream)
+            }
         } catch (e: IOException) {
             throw e.toFriendlyException()
         }
@@ -96,7 +98,8 @@ internal class StreamingAeadEncryptingSerializer<T>(
         return if (isProbablyEncryptedWithAeadException()) {
             CorruptionException(
                 "Can not decrypt DataStore using StreamingAead.\n" +
-                        "Probably you should add decryption fallback to Aead:\n" +
+                        "Probably you have not closed output stream in the `writeTo` method of the serializer or \n" +
+                        "if you had used library before make sure you have added fallback to Aead:\n" +
                         "https://github.com/osipxd/encrypted-datastore#migration",
                 cause = this,
             )
@@ -106,7 +109,9 @@ internal class StreamingAeadEncryptingSerializer<T>(
     }
 
     override suspend fun writeTo(t: T, output: OutputStream) {
-        delegate.writeTo(t, streamingAead.newEncryptingStream(output, associatedData))
+        streamingAead.newEncryptingStream(output, associatedData).use { encryptingStream ->
+            delegate.writeTo(t, encryptingStream)
+        }
     }
 }
 
