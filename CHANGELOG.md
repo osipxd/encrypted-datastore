@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [1.0.0-alpha04] - 2022.12.19
+
 ### Fixed
 
 - Fixed the case when data can not be read if output stream was not closed in serializer (#10)
@@ -77,5 +79,6 @@ To continue use it, change the dependency module in your build script:
 - gradle-infrastructure `0.12.1` → `0.17`
 - Migrate dependencies to version catalogs
 
-[unreleased]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha03...main
+[unreleased]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha04...main
+[1.0.0-alpha04]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha03...v1.0.0-alpha04
 [1.0.0-alpha03]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha02...v1.0.0-alpha03
