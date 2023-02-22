@@ -57,7 +57,7 @@ public fun <T> DataStoreFactory.createEncrypted(
     val options = EncryptedDataStoreOptions().also(encryptionOptions)
     val encryptedFile = produceFile()
 
-    val streamingAead = encryptedFile.streamingAead.withDecryptionFallback(options.fallbackAead)
+    val streamingAead = encryptedFile.streamingAead.withDecryptionFallbackIfNotNull(options.fallbackAead)
     val file = encryptedFile.file
     val associatedData = options.associatedData ?: file.name.toByteArray()
 
@@ -70,6 +70,6 @@ public fun <T> DataStoreFactory.createEncrypted(
     )
 }
 
-private fun StreamingAead.withDecryptionFallback(fallbackAead: Aead?): StreamingAead {
+private fun StreamingAead.withDecryptionFallbackIfNotNull(fallbackAead: Aead?): StreamingAead {
     return if (fallbackAead != null) this.withDecryptionFallback(fallbackAead) else this
 }
