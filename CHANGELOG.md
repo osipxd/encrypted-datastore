@@ -3,6 +3,7 @@
 ### Fixed
 
 - Fixed decryption fallback from StreamingAead to Aead (#15)
+- Change min SDK 21 → 23 to align it with security-crypto 1.0.0
 
 ### Housekeeping
 

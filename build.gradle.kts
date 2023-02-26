@@ -15,7 +15,7 @@ subprojects {
 
 redmadrobot {
     // Min SDK should be aligned with min SDK in androidx.security:security-crypto
-    android.minSdk.set(21)
+    android.minSdk.set(23)
 
     publishing {
         signArtifacts.set(true)
