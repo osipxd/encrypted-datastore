@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+### Fixed
+
+- Fixed decryption fallback from StreamingAead to Aead (#15)
+
 ### Housekeeping
 
 - Update Gradle to 7.6.1

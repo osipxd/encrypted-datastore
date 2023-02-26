@@ -13,9 +13,13 @@ internal class StreamingAeadWithFallback(
 ) : StreamingAead by delegate {
 
     override fun newDecryptingStream(ciphertextSource: InputStream, associatedData: ByteArray): InputStream {
+        // Input Stream should support mark and reset to make it reusable in fallback stream.
+        // NOTE: mark is called in delegate.newDecryptingStream
+        val inputStream = if (ciphertextSource.markSupported()) ciphertextSource else ciphertextSource.buffered()
+
         return DecryptingStreamWithFallback(
-            stream = delegate.newDecryptingStream(ciphertextSource, associatedData),
-            fallbackStream = { fallback.newDecryptedStream(ciphertextSource) },
+            stream = delegate.newDecryptingStream(inputStream, associatedData),
+            fallbackStream = { fallback.newDecryptedStream(inputStream) },
         )
     }
 
