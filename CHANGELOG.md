@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+### Housekeeping
+
+- Update Gradle to 7.6.1
+
 ## [1.0.0-alpha04] - 2022.12.19
 
 ### Fixed
