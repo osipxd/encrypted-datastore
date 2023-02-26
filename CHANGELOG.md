@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [1.0.0-beta01] - 2023.02.26
+
 ### Fixed
 
 - Fixed decryption fallback from StreamingAead to Aead (#15)
@@ -88,6 +90,7 @@ To continue use it, change the dependency module in your build script:
 - gradle-infrastructure `0.12.1` → `0.17`
 - Migrate dependencies to version catalogs
 
-[unreleased]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha04...main
+[unreleased]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-beta01...main
+[1.0.0-beta01]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha04...v1.0.0-beta01
 [1.0.0-alpha04]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha03...v1.0.0-alpha04
 [1.0.0-alpha03]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha02...v1.0.0-alpha03
