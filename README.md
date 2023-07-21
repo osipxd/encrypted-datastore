@@ -19,9 +19,9 @@ repositories {
 }
 
 dependencies {
-    implementation("io.github.osipxd:security-crypto-datastore:1.0.0-alpha04")
+    implementation("io.github.osipxd:security-crypto-datastore:1.0.0-beta01")
     // Or, if you want to use Preferences DataStore:
-    implementation("io.github.osipxd:security-crypto-datastore-preferences:1.0.0-alpha04")
+    implementation("io.github.osipxd:security-crypto-datastore-preferences:1.0.0-beta01")
 }
 ```
 
@@ -92,6 +92,8 @@ val dataStore = PreferenceDataStoreFactory.createEncrypted {
 }
 ```
 </details>
+
+Then you can use the created encrypted DataStore just like simple DataDtore. Look at [the DataStore docs](https://developer.android.com/topic/libraries/architecture/datastore) for usage guide and examples.
 
 ## Migration
 
