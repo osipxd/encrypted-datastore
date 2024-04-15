@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+### Housekeeping
+
+- Update Gradle to 8.7
+
 ## [1.0.0-beta01] - 2023.02.26
 
 ### Fixed
