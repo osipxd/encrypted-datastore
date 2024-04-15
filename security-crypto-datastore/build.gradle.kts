@@ -1,6 +1,5 @@
 plugins {
-    com.redmadrobot.`android-library`
-    convention.publish
+    convention.library.android
 }
 
 description = "AndroidX Security Kotlin Extensions (with DataStore support)"

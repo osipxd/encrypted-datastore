@@ -1,6 +1,5 @@
 plugins {
-    com.redmadrobot.`kotlin-library`
-    convention.publish
+    convention.library.kotlin
 }
 
 description = "Extensions to encrypt DataStore using Tink"
@@ -11,6 +10,6 @@ dependencies {
     api(libs.tink)
 
     testImplementation(kotlin("test", version = libs.versions.kotlin.get()))
-    testImplementation(platform("org.junit:junit-bom:5.9.1"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
+    testImplementation(platform(libs.junit.bom))
+    testImplementation(libs.junit.jupiter)
 }

@@ -1,8 +1,15 @@
 ## [Unreleased]
 
+### Dependencies
+
+- Target JVM `1.8` → `11`
+- Kotlin `1.7.21` → `1.9.23`
+- [Tink](https://github.com/tink-crypto/tink-java/releases) `1.7.0` → `1.13.0`
+
 ### Housekeeping
 
 - Update Gradle to 8.7
+- Update AGP to 7.4.2
 
 ## [1.0.0-beta01] - 2023.02.26
 
