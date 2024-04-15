@@ -1,11 +1,12 @@
 plugins {
-    com.redmadrobot.`android-library`
-    convention.publish
+    convention.library.android
 }
 
 description = "AndroidX Security Kotlin Extensions (with DataStore support)"
 
 android {
+    namespace = "$group.security.datastore.preferences"
+
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunnerArguments["clearPackageData"] = "true"
