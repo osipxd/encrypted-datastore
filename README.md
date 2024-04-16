@@ -3,7 +3,8 @@
 
 Extensions to store DataStore in `EncryptedFile`.
 
-> :warning: This tiny library will be maintained until an official solution for DataStore encryption will be released by Google. \
+> [!WARNING]
+> This tiny library will be maintained until an official solution for DataStore encryption will be released by Google.
 > Vote for this feature on issue tracker: [b/167697691](https://issuetracker.google.com/issues/167697691)
 
 ---
@@ -28,7 +29,7 @@ dependencies {
 > **Dependencies:**
 > - `security-crypto` [1.0.0](https://developer.android.com/jetpack/androidx/releases/security#1.0.0)
 > - `datastore` [1.0.0](https://developer.android.com/jetpack/androidx/releases/datastore#1.0.0)
-> - `tink` [1.7.0](https://github.com/google/tink/releases/tag/v1.7.0)
+> - `tink` [1.13.0](https://github.com/tink-crypto/tink-java/releases/tag/v1.13.0)
 
 ## Usage
 
@@ -190,7 +191,7 @@ val dataStore = DataStoreFactory.createEncrypted(
 [mavenCentral]: https://search.maven.org/artifact/io.github.osipxd/encrypted-datastore
 [license]: LICENSE
 
-[tink]: https://github.com/google/tink
+[tink]: https://github.com/tink-crypto/tink-java
 [secured-datastore]: https://github.com/Fi5t/secured-datastore
 [fi5t]: https://github.com/Fi5t
 [hack]: encrypted-datastore-preferences/src/main/java/io/github/osipxd/datastore/encrypted/PreferenceDataStoreHack.java
