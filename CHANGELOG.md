@@ -1,5 +1,36 @@
 ## [Unreleased]
 
+### Delegates to create encrypted DataStores
+
+Delegates `encryptedDataStore` and `encryptedPreferencesDataStore` were added to simplify DataStore creation.
+If you have the following code:
+
+```kotlin
+val dataStore = DataStoreFactory.createEncrypted(serializer) {
+    EncryptedFile.Builder(
+        context.dataStoreFile("filename"),
+        context,
+        MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC),
+        EncryptedFile.FileEncryptionScheme.AES256_GCM_HKDF_4KB
+    ).build()
+}
+```
+
+You can simplify it using delegate for DataStore creation.
+
+```kotlin
+// 1. Move the field to top level of you Kotlin file and turn it to an extension on Context
+// 2. Replace `DataStoreFactory.createEncrypted` with `encryptedDataStore`
+val Context.dataStore by encryptedDataStore(
+    fileName = "filename", // Keep file the same
+    serializer = serializer,
+)
+```
+
+> [!NOTE]
+> This only will be interchangeable if you used `context.dataStoreFile(...)` to create datastore file.
+> In case you have custom logic for master key creation, pass the created master key as a parameter `masterKey` to the delegate.
+
 ### Dependencies
 
 - Target JVM `1.8` → `11`

@@ -43,6 +43,7 @@ import kotlinx.coroutines.SupervisorJob
  * }
  * ```
  *
+ * @see encryptedPreferencesDataStore
  * @see PreferenceDataStoreFactory.create
  */
 public fun PreferenceDataStoreFactory.createEncrypted(
