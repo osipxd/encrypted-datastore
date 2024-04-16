@@ -44,6 +44,7 @@ import kotlinx.coroutines.SupervisorJob
  * }
  * ```
  *
+ * @see encryptedDataStore
  * @see DataStoreFactory.create
  */
 public fun <T> DataStoreFactory.createEncrypted(
