@@ -17,14 +17,15 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 
 /**
- * Creates Preferences DataStore instance stored in [EncryptedFile].
- * The file must have the extension "preferences_pb".
+ * Creates Preferences DataStore instance stored in [EncryptedFile]. Never create more than one
+ * instance of DataStore for a given file; doing so can break all DataStore functionality.
+ * You should consider managing your DataStore instance as a singleton.
  *
- * Basic usage:
+ * Example usage:
  * ```
  * val dataStore = PreferenceDataStoreFactory.createEncrypted {
  *     EncryptedFile.Builder(
- *          context.dataStoreFile("filename.preferences_pb"),
+ *          context.preferencesDataStoreFile("filename"),
  *          context,
  *          MasterKeys.getOrCreate(MasterKeys.AES256_GCM_SPEC),
  *          EncryptedFile.FileEncryptionScheme.AES256_GCM_HKDF_4KB
@@ -37,11 +38,24 @@ import kotlinx.coroutines.SupervisorJob
  * val dataStore = PreferenceDataStoreFactory.createEncrypted {
  *     EncryptedFile(
  *         context = context,
- *         file = context.dataStoreFile("filename.preferences_pb"),
+ *         file = context.preferencesDataStoreFile("filename"),
  *         masterKey = MasterKey(context)
  *     )
  * }
  * ```
+ *
+ * @param corruptionHandler The corruptionHandler is invoked if DataStore encounters a
+ * [CorruptionException] when attempting to read data. CorruptionExceptions are thrown by
+ * serializers when data cannot be de-serialized.
+ * @param migrations are run before any access to data can occur. Each producer and migration
+ * may be run more than once whether or not it already succeeded (potentially because another
+ * migration failed or a write to disk failed.)
+ * @param scope The scope in which IO operations and transform functions will execute.
+ * @param encryptionOptions Additional encryption options.
+ * @param produceFile Function which returns the [EncryptedFile] that the new DataStore will act on.
+ * The function must return the same path every time. No two instances of PreferenceDataStore
+ * should act on the same file at the same time. The file must have the extension
+ * preferences_pb.
  *
  * @see encryptedPreferencesDataStore
  * @see PreferenceDataStoreFactory.create
