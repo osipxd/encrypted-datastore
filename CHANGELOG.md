@@ -9,7 +9,7 @@
 ### Housekeeping
 
 - Update Gradle to 8.7
-- Update AGP to 7.4.2
+- Update AGP to 8.3.2
 - Move `PreferenceDataStoreHack.java` into `encrypted-datastore-preferences` module
 
 ## [1.0.0-beta01] - 2023.02.26

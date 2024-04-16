@@ -9,8 +9,7 @@ junit = "5.9.3"
 
 kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 
-# TODO #22: Update to AGP 8.0+ when it will be fixed
-android-gradlePlugin = "com.android.tools.build:gradle:7.4.2"
+android-gradlePlugin = "com.android.tools.build:gradle:8.3.2"
 android-cacheFix = "gradle.plugin.org.gradle.android:android-cache-fix-gradle-plugin:3.0.1"
 
 androidx-datastore = { module = "androidx.datastore:datastore", version.ref = "datastore" }
