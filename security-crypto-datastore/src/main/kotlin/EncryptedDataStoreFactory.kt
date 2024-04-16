@@ -19,9 +19,17 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 
 /**
- * Creates DataStore instance stored in [EncryptedFile].
+ * Create an instance of SingleProcessDataStore stored in [EncryptedFile]. Never create more
+ * than one instance of DataStore for a given file; doing so can break all DataStore functionality.
+ * You should consider managing your DataStore instance as a singleton. If there are multiple
+ * DataStores active, DataStore will throw IllegalStateException when reading or updating data.
+ * A DataStore is considered active as long as its scope is active.
  *
- * Basic usage:
+ * T is the type DataStore acts on. The type T must be immutable. Mutating a type used in
+ * DataStore invalidates any guarantees that DataStore provides and will result in
+ * potentially serious, hard-to-catch bugs.
+ *
+ * Example usage:
  * ```
  * val dataStore = DataStoreFactory.createEncrypted(serializer) {
  *     EncryptedFile.Builder(
@@ -43,6 +51,17 @@ import kotlinx.coroutines.SupervisorJob
  *     )
  * }
  * ```
+ * @param serializer Serializer for the type `T` used with DataStore. The type `T` must be immutable.
+ * @param corruptionHandler The corruptionHandler is invoked if DataStore encounters a
+ * [CorruptionException] when attempting to read data. CorruptionExceptions are thrown by
+ * serializers when data can not be de-serialized.
+ * @param migrations Migrations are run before any access to data can occur. Migrations must
+ * be idempotent.
+ * @param scope The scope in which IO operations and transform functions will execute.
+ * @param encryptionOptions Additional encryption options.
+ * @param produceFile Function which returns the [EncryptedFile] that the new DataStore will act on.
+ * The function must return the same path every time. No two instances of DataStore should act on
+ * the same file at the same time.
  *
  * @see encryptedDataStore
  * @see DataStoreFactory.create
