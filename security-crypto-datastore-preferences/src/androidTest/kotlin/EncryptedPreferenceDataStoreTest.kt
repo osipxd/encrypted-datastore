@@ -7,10 +7,14 @@ import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
+import androidx.datastore.preferences.preferencesDataStoreFile
 import androidx.security.crypto.EncryptedFile
 import androidx.security.crypto.MasterKeys
 import androidx.test.core.app.ApplicationProvider
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
@@ -20,8 +24,10 @@ import kotlin.test.assertEquals
 
 internal class EncryptedPreferenceDataStoreTest {
 
+    private val dataStoreScope = CoroutineScope(Dispatchers.IO + SupervisorJob())
+
     private val context = ApplicationProvider.getApplicationContext<Context>()
-    private val file = context.dataStoreFile("test.preferences_pb")
+    private val file = context.preferencesDataStoreFile(DATASTORE_NAME)
 
     @Test
     fun encryptAndDecrypt(): Unit = runBlocking {
@@ -35,14 +41,35 @@ internal class EncryptedPreferenceDataStoreTest {
         }
 
         // Read data
-        val dataStore = createDataStore(this)
+        val dataStore = createDataStore(dataStoreScope)
         val preferences = dataStore.data.first()
+
+        assertEquals(plaintext, preferences[dataKey])
+    }
+
+    private val Context.dataStore by encryptedPreferencesDataStore(DATASTORE_NAME, scope = dataStoreScope)
+
+    @Test
+    fun encryptUsingFactoryAndDecryptUsingDelegate() = runBlocking {
+        val dataKey = stringPreferencesKey("testKey")
+        val plaintext = "I can use both factory and delegate"
+
+        // Write data and close DataStore
+        coroutineScope {
+            // Create DataStore using factory
+            val dataStore = createDataStore(this)
+            dataStore.edit { it[dataKey] = plaintext }
+        }
+
+        // Read data from delegate
+        val preferences = context.dataStore.data.first()
 
         assertEquals(plaintext, preferences[dataKey])
     }
 
     @After
     fun tearDown() {
+        dataStoreScope.cancel()
         file.delete()
     }
 
@@ -55,5 +82,9 @@ internal class EncryptedPreferenceDataStoreTest {
                 EncryptedFile.FileEncryptionScheme.AES256_GCM_HKDF_4KB
             ).build()
         }
+    }
+
+    private companion object {
+        const val DATASTORE_NAME = "test"
     }
 }
