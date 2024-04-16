@@ -181,4 +181,4 @@ val dataStore = DataStoreFactory.createEncrypted(
 [tink]: https://github.com/google/tink
 [secured-datastore]: https://github.com/Fi5t/secured-datastore
 [fi5t]: https://github.com/Fi5t
-[hack]: encrypted-datastore-internal-visibility-hack/src/main/java/io/github/osipxd/datastore/encrypted/PreferenceDataStoreHack.java
+[hack]: encrypted-datastore-preferences/src/main/java/io/github/osipxd/datastore/encrypted/PreferenceDataStoreHack.java
