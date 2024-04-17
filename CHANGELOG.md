@@ -1,5 +1,7 @@
 ## [Unreleased]
 
+## [1.0.0] - 2024.04.17
+
 ### Delegates to create encrypted DataStores
 
 Delegates `encryptedDataStore` and `encryptedPreferencesDataStore` were added to simplify DataStore creation.
@@ -133,7 +135,8 @@ To continue use it, change the dependency module in your build script:
 - gradle-infrastructure `0.12.1` → `0.17`
 - Migrate dependencies to version catalogs
 
-[unreleased]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-beta01...main
+[unreleased]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0...main
+[1.0.0]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-beta01...v1.0.0
 [1.0.0-beta01]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha04...v1.0.0-beta01
 [1.0.0-alpha04]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha03...v1.0.0-alpha04
 [1.0.0-alpha03]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha02...v1.0.0-alpha03
