@@ -1,5 +1,6 @@
 plugins {
     convention.library.kotlin
+    `java-test-fixtures`
 }
 
 description = "Extensions to encrypt DataStore using Tink"

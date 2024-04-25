@@ -32,6 +32,7 @@ public fun PreferenceDataStoreFactory.createEncrypted(
     scope: CoroutineScope = CoroutineScope(Dispatchers.IO + SupervisorJob()),
     produceFile: () -> File,
 ): DataStore<Preferences> {
+    @Suppress("DEPRECATION")
     val delegate = DataStoreFactory.create(
         serializer = PreferencesSerializer.encrypted(aead),
         corruptionHandler = corruptionHandler,

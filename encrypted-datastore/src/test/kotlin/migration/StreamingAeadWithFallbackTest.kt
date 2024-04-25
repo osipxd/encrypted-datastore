@@ -6,6 +6,7 @@ import com.google.crypto.tink.KeysetHandle
 import com.google.crypto.tink.StreamingAead
 import com.google.crypto.tink.aead.AeadConfig
 import com.google.crypto.tink.streamingaead.StreamingAeadConfig
+import io.github.osipxd.datastore.encrypted.TestAssets
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.api.io.TempDir
 import java.io.IOException
@@ -28,10 +29,8 @@ internal class StreamingAeadWithFallbackTest {
         AeadConfig.register()
         StreamingAeadConfig.register()
 
-        aead = KeysetHandle.generateNew(KeyTemplates.get("AES256_GCM"))
-            .getPrimitive(Aead::class.java)
-        streamingAead = KeysetHandle.generateNew(KeyTemplates.get("AES256_GCM_HKDF_4KB"))
-            .getPrimitive(StreamingAead::class.java)
+        aead = TestAssets.generateAead()
+        streamingAead = TestAssets.generateStreamingAead()
     }
 
     @Test

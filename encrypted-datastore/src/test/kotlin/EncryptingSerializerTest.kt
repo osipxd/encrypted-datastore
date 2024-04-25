@@ -12,7 +12,7 @@ import java.io.OutputStream
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-internal class EncryptingSerializeTest {
+internal class EncryptingSerializerTest {
 
     private var streamingAead: StreamingAead
 
@@ -39,7 +39,7 @@ internal class EncryptingSerializeTest {
         }
     }
 
-    object AlwaysOpenStreamSerializer : Serializer<ByteArray> {
+    private object AlwaysOpenStreamSerializer : Serializer<ByteArray> {
         override val defaultValue: ByteArray = byteArrayOf()
         override suspend fun readFrom(input: InputStream): ByteArray = input.readBytes()
         override suspend fun writeTo(t: ByteArray, output: OutputStream) = output.write(t)
