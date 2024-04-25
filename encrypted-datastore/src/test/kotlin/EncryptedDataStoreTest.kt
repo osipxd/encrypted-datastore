@@ -31,9 +31,8 @@ internal class EncryptedDataStoreTest {
         assertEquals(expected = data, actual = decryptedData)
     }
 
-    // Run this test only when you really need to generate new key or encrypt new data
     @Test
-    @Ignore
+    @Ignore("Run this test only when you really need to generate new key or encrypt new data")
     fun `generate key and encrypt data`() {
         val dataStore = createDataStore(TestAssets.generateStreamingAead(saveToDisk = true))
         runBlocking { dataStore.updateData { data } }
