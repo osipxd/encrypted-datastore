@@ -1,0 +1,13 @@
+public abstract interface class io/github/osipxd/datastore/encrypted/EncryptingSerializer : androidx/datastore/core/Serializer {
+}
+
+public final class io/github/osipxd/datastore/encrypted/EncryptingSerializerKt {
+	public static final fun encrypted (Landroidx/datastore/core/Serializer;Lcom/google/crypto/tink/Aead;)Lio/github/osipxd/datastore/encrypted/EncryptingSerializer;
+	public static final fun encrypted (Landroidx/datastore/core/Serializer;Lcom/google/crypto/tink/StreamingAead;[B)Lio/github/osipxd/datastore/encrypted/EncryptingSerializer;
+	public static synthetic fun encrypted$default (Landroidx/datastore/core/Serializer;Lcom/google/crypto/tink/StreamingAead;[BILjava/lang/Object;)Lio/github/osipxd/datastore/encrypted/EncryptingSerializer;
+}
+
+public final class io/github/osipxd/datastore/encrypted/migration/StreamingAeadWithFallbackKt {
+	public static final fun withDecryptionFallback (Lcom/google/crypto/tink/StreamingAead;Lcom/google/crypto/tink/Aead;)Lcom/google/crypto/tink/StreamingAead;
+}
+

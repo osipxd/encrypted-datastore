@@ -10,6 +10,8 @@ dependencies {
     implementation(libs.infrastructure.android)
     implementation(libs.infrastructure.kotlin)
     implementation(libs.infrastructure.publish)
+
+    implementation(libs.kotlinx.binaryCompatibilityValidator)
 }
 
 repositories {
