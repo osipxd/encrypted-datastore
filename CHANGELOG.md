@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+### Housekeeping
+
+- Added binary compatibility validator to not break binary compatibility unintentionally
+
 ## [1.0.0] - 2024.04.17
 
 ### Delegates to create encrypted DataStores

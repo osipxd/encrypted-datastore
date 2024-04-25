@@ -1,0 +1,10 @@
+public final class io/github/osipxd/security/crypto/EncryptedPreferenceDataStoreFactoryKt {
+	public static final fun createEncrypted (Landroidx/datastore/preferences/core/PreferenceDataStoreFactory;Landroidx/datastore/core/handlers/ReplaceFileCorruptionHandler;Ljava/util/List;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)Landroidx/datastore/core/DataStore;
+	public static synthetic fun createEncrypted$default (Landroidx/datastore/preferences/core/PreferenceDataStoreFactory;Landroidx/datastore/core/handlers/ReplaceFileCorruptionHandler;Ljava/util/List;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Landroidx/datastore/core/DataStore;
+}
+
+public final class io/github/osipxd/security/crypto/EncryptedPreferencesDataStoreDelegateKt {
+	public static final fun encryptedPreferencesDataStore (Ljava/lang/String;Landroidx/datastore/core/handlers/ReplaceFileCorruptionHandler;Lkotlin/jvm/functions/Function1;Lkotlinx/coroutines/CoroutineScope;Ljava/lang/String;Landroidx/security/crypto/EncryptedFile$FileEncryptionScheme;Lkotlin/jvm/functions/Function1;)Lkotlin/properties/ReadOnlyProperty;
+	public static synthetic fun encryptedPreferencesDataStore$default (Ljava/lang/String;Landroidx/datastore/core/handlers/ReplaceFileCorruptionHandler;Lkotlin/jvm/functions/Function1;Lkotlinx/coroutines/CoroutineScope;Ljava/lang/String;Landroidx/security/crypto/EncryptedFile$FileEncryptionScheme;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lkotlin/properties/ReadOnlyProperty;
+}
+
