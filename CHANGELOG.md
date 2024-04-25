@@ -1,8 +1,19 @@
 ## [Unreleased]
 
+### DataStore 1.1.0+
+
+> [!NOTE]
+> Ensure that the version of this library aligns with the DataStore library version used in your project.
+> This version should only be used with [`datastore:1.1.1`](https://developer.android.com/jetpack/androidx/releases/datastore#1.1.1), as it depends on new APIs introduced in that release.
+
+Starting with version 1.1.0, DataStore has become a multiplatform library.
+However, encrypted datastore is currently limited to JVM and Android targets due to dependencies on JVM-specific libraries like Tink and `security-crypto`.
+I am actively exploring ways to add support for more targets to the library.
+The research will take some time, so I've released a beta version compatible with DataStore 1.1.0 for developers not requiring multiplatform targets support.
+
 ### Housekeeping
 
-- Added binary compatibility validator to not break binary compatibility unintentionally
+- Added a binary compatibility validator to prevent unintentional breaks in binary compatibility
 
 ## [1.0.0] - 2024.04.17
 
