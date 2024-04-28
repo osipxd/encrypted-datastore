@@ -2,6 +2,7 @@
 
 package io.github.osipxd.datastore.encrypted
 
+import androidx.annotation.RestrictTo
 import androidx.datastore.core.DataMigration
 import androidx.datastore.core.DataStore
 import androidx.datastore.core.DataStoreFactory
@@ -50,6 +51,7 @@ public fun PreferenceDataStoreFactory.createEncrypted(
 public val PreferencesSerializer: Serializer<Preferences> = PreferencesSerializer.asJvmSerialiser()
 
 /** Exposes PreferenceDataStore constructor. */
+@RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 public fun PreferenceDataStore(delegate: DataStore<Preferences>): DataStore<Preferences> =
     PreferenceDataStoreHack.wrap(delegate)
 
@@ -57,6 +59,7 @@ public fun PreferenceDataStore(delegate: DataStore<Preferences>): DataStore<Pref
 private const val FILE_EXTENSION = "preferences_pb"
 
 /** Checks that [this] file have valid extension for Preference DataStore */
+@RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 public fun File.checkPreferenceDataStoreFileExtension(): File = apply {
     check(extension == FILE_EXTENSION) {
         "File extension for file: $this does not match required extension for Preferences file: $FILE_EXTENSION"

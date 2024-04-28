@@ -18,4 +18,5 @@ java {
 
 apiValidation {
     ignoredPackages.add("io.github.osipxd.datastore.encrypted.internal")
+    nonPublicMarkers.add("androidx.annotation.RestrictTo")
 }
