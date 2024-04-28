@@ -11,6 +11,12 @@ However, encrypted datastore is currently limited to JVM and Android targets due
 I am actively exploring ways to add support for more targets to the library.
 The research will take some time, so I've released a beta version compatible with DataStore 1.1.0 for developers not requiring multiplatform targets support.
 
+### Changes
+
+- **Potentially breaking change:** The field `io.github.osipxd.datastore.encrypted.PreferencesSerializer` has been hidden from the public API.
+  Instead, directly use the object `PreferencesSerializer`, which is now publicly available starting with the `datastore:1.1.0` release.
+- Added the `@RestrictTo(LIBRARY_GROUP)` annotation to public members that are intended for internal use only, ensuring they are not used externally.
+
 ### Housekeeping
 
 - Added a binary compatibility validator to prevent unintentional breaks in binary compatibility
