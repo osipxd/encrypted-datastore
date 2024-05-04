@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+*No changes*
+
+## [1.1.1-beta01] - 2024.05.04
+
 ### DataStore 1.1.0+
 
 > [!NOTE]
@@ -156,7 +160,8 @@ To continue use it, change the dependency module in your build script:
 - gradle-infrastructure `0.12.1` → `0.17`
 - Migrate dependencies to version catalogs
 
-[unreleased]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0...main
+[unreleased]: https://github.com/osipxd/encrypted-datastore/compare/1.1.1-beta01...main
+[1.1.1-beta01]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0...1.1.1-beta01
 [1.0.0]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-beta01...v1.0.0
 [1.0.0-beta01]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha04...v1.0.0-beta01
 [1.0.0-alpha04]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha03...v1.0.0-alpha04
