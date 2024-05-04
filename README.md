@@ -20,9 +20,9 @@ repositories {
 }
 
 dependencies {
-    implementation("io.github.osipxd:security-crypto-datastore:1.0.0")
+    implementation("io.github.osipxd:security-crypto-datastore:1.1.1-beta01")
     // Or, if you want to use Preferences DataStore:
-    implementation("io.github.osipxd:security-crypto-datastore-preferences:1.0.0")
+    implementation("io.github.osipxd:security-crypto-datastore-preferences:1.1.1-beta01")
 }
 ```
 
