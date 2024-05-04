@@ -1,11 +1,11 @@
 # Encrypted DataStore
 [![Version](https://img.shields.io/maven-central/v/io.github.osipxd/encrypted-datastore?style=flat-square)][mavenCentral] [![License](https://img.shields.io/github/license/osipxd/encrypted-datastore?style=flat-square)][license]
 
-Extensions to store DataStore in `EncryptedFile`.
+Extensions to store DataStore into `EncryptedFile`.
 
 > [!WARNING]
-> This tiny library will be maintained until an official solution for DataStore encryption will be released by Google.
-> Vote for this feature on issue tracker: [b/167697691](https://issuetracker.google.com/issues/167697691)
+> This library will continue to be maintained, but active development will continue until an official DataStore encryption solution is released by Google.
+> Support the development of this feature by voting for it on the issue tracker: [b/167697691](https://issuetracker.google.com/issues/167697691).
 
 ---
 
@@ -28,12 +28,15 @@ dependencies {
 
 > **Dependencies:**
 > - `security-crypto` [1.0.0](https://developer.android.com/jetpack/androidx/releases/security#1.0.0)
-> - `datastore` [1.0.0](https://developer.android.com/jetpack/androidx/releases/datastore#1.0.0)
+> - `datastore` [1.1.1](https://developer.android.com/jetpack/androidx/releases/datastore#1.1.1)
 > - `tink` [1.13.0](https://github.com/tink-crypto/tink-java/releases/tag/v1.13.0)
+
+> [!NOTE]
+> Ensure that the version of this library aligns with the DataStore library version used in your project.
 
 ## Usage
 
-To create encrypted DataStore, just use method `encryptedDataStore` instead of `dataStore` to create delegate:
+To create an encrypted DataStore, simply replace the `dataStore` method with `encryptedDataStore` when setting up your delegate:
 
 ```kotlin
 // At the top level of your Kotlin file:
@@ -80,13 +83,14 @@ val dataStore: DataStore<Preferences> = PreferenceDataStoreFactory.createEncrypt
 ```
 </details>
 
-Then you can use the created encrypted DataStore just like simple DataDtore. Look at [the DataStore docs](https://developer.android.com/topic/libraries/architecture/datastore) for usage guide and examples.
+Once your encrypted DataStore is configured, you can use it in the same manner as a regular DataStore.
+For usage guides and examples, refer to the [DataStore documentation](https://developer.android.com/topic/libraries/architecture/datastore).
 
 ## Migration
 
-### Migrate from factory to delegate
+### Migrating from DataStoreFactory to delegate usage
 
-If you have the following code:
+If you are starting with the following code:
 
 ```kotlin
 val dataStore = DataStoreFactory.createEncrypted(serializer) {
@@ -99,11 +103,12 @@ val dataStore = DataStoreFactory.createEncrypted(serializer) {
 }
 ```
 
-You can simplify it using delegate for DataStore creation.
+To simplify the creation of DataStore using a delegate, follow these steps:
+
+1. Move the field to the top level of your Kotlin file and convert it into an extension on `Context`.
+2. Replace `DataStoreFactory.createEncrypted` with `encryptedDataStore`.
 
 ```kotlin
-// 1. Move the field to top level of you Kotlin file and turn it to an extension on Context
-// 2. Replace `DataStoreFactory.createEncrypted` with `encryptedDataStore`
 val Context.dataStore by encryptedDataStore(
     fileName = "filename", // Keep file the same
     serializer = serializer,
@@ -111,10 +116,10 @@ val Context.dataStore by encryptedDataStore(
 ```
 
 > [!NOTE]
-> This only will be interchangeable if you used `context.dataStoreFile(...)` to create datastore file.
-> In case you have custom logic for master key creation, pass the created master key as a parameter `masterKey` to the delegate.
+> This only will be interchangeable if you have used `context.dataStoreFile(...)` to create the datastore file.
+> If you have custom logic for master key creation, ensure to pass the created master key as the `masterKey` parameter to the delegate.
 
-### Migrate from `encrypted-datastore` to `security-crypto-datastore`
+### Migrating from `encrypted-datastore` to `security-crypto-datastore`
 
 Change the dependency in build script:
 
