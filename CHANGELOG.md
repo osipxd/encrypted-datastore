@@ -1,5 +1,30 @@
 ## [Unreleased]
 
+*No changes*
+
+## [1.1.1-beta01] - 2024.05.04
+
+### DataStore 1.1.0+
+
+> [!NOTE]
+> Ensure that the version of this library aligns with the DataStore library version used in your project.
+> This version should only be used with [`datastore:1.1.1`](https://developer.android.com/jetpack/androidx/releases/datastore#1.1.1), as it depends on new APIs introduced in that release.
+
+Starting with version 1.1.0, DataStore has become a multiplatform library.
+However, encrypted datastore is currently limited to JVM and Android targets due to dependencies on JVM-specific libraries like Tink and `security-crypto`.
+I am actively exploring ways to add support for more targets to the library.
+The research will take some time, so I've released a beta version compatible with DataStore 1.1.0 for developers not requiring multiplatform targets support.
+
+### Changes
+
+- **Potentially breaking change:** The field `io.github.osipxd.datastore.encrypted.PreferencesSerializer` has been hidden from the public API.
+  Instead, directly use the object `PreferencesSerializer`, which is now publicly available starting with the `datastore:1.1.0` release.
+- Added the `@RestrictTo(LIBRARY_GROUP)` annotation to public members that are intended for internal use only, ensuring they are not used externally.
+
+### Housekeeping
+
+- Added a binary compatibility validator to prevent unintentional breaks in binary compatibility
+
 ## [1.0.0] - 2024.04.17
 
 ### Delegates to create encrypted DataStores
@@ -135,7 +160,8 @@ To continue use it, change the dependency module in your build script:
 - gradle-infrastructure `0.12.1` → `0.17`
 - Migrate dependencies to version catalogs
 
-[unreleased]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0...main
+[unreleased]: https://github.com/osipxd/encrypted-datastore/compare/1.1.1-beta01...main
+[1.1.1-beta01]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0...1.1.1-beta01
 [1.0.0]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-beta01...v1.0.0
 [1.0.0-beta01]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha04...v1.0.0-beta01
 [1.0.0-alpha04]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha03...v1.0.0-alpha04

@@ -1,0 +1,21 @@
+public final class io/github/osipxd/security/crypto/EncryptedDataStoreDelegateKt {
+	public static final fun encryptedDataStore (Ljava/lang/String;Landroidx/datastore/core/Serializer;Landroidx/datastore/core/handlers/ReplaceFileCorruptionHandler;Lkotlin/jvm/functions/Function1;Lkotlinx/coroutines/CoroutineScope;Ljava/lang/String;Landroidx/security/crypto/EncryptedFile$FileEncryptionScheme;Lkotlin/jvm/functions/Function1;)Lkotlin/properties/ReadOnlyProperty;
+	public static synthetic fun encryptedDataStore$default (Ljava/lang/String;Landroidx/datastore/core/Serializer;Landroidx/datastore/core/handlers/ReplaceFileCorruptionHandler;Lkotlin/jvm/functions/Function1;Lkotlinx/coroutines/CoroutineScope;Ljava/lang/String;Landroidx/security/crypto/EncryptedFile$FileEncryptionScheme;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lkotlin/properties/ReadOnlyProperty;
+}
+
+public final class io/github/osipxd/security/crypto/EncryptedDataStoreFactoryKt {
+	public static final fun createEncrypted (Landroidx/datastore/core/DataStoreFactory;Landroidx/datastore/core/Serializer;Landroidx/datastore/core/handlers/ReplaceFileCorruptionHandler;Ljava/util/List;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;)Landroidx/datastore/core/DataStore;
+	public static synthetic fun createEncrypted$default (Landroidx/datastore/core/DataStoreFactory;Landroidx/datastore/core/Serializer;Landroidx/datastore/core/handlers/ReplaceFileCorruptionHandler;Ljava/util/List;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Landroidx/datastore/core/DataStore;
+}
+
+public final class io/github/osipxd/security/crypto/EncryptedDataStoreOptions {
+	public final fun getAssociatedData ()[B
+	public final fun getFallbackAead ()Lcom/google/crypto/tink/Aead;
+	public final fun setAssociatedData ([B)V
+	public final fun setFallbackAead (Lcom/google/crypto/tink/Aead;)V
+}
+
+public final class io/github/osipxd/security/crypto/EncryptedFileKt {
+	public static final fun getFile (Landroidx/security/crypto/EncryptedFile;)Ljava/io/File;
+}
+
