@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+*No changes*
+
+## [1.1.1-beta02] - 2024.05.07
+
 ### Fixed
 
 - Fixed Preference DataStore saving (#38)
@@ -167,7 +171,8 @@ To continue use it, change the dependency module in your build script:
 - gradle-infrastructure `0.12.1` → `0.17`
 - Migrate dependencies to version catalogs
 
-[unreleased]: https://github.com/osipxd/encrypted-datastore/compare/1.1.1-beta01...main
+[unreleased]: https://github.com/osipxd/encrypted-datastore/compare/1.1.1-beta02...main
+[1.1.1-beta02]: https://github.com/osipxd/encrypted-datastore/compare/v1.1.1-beta01...1.1.1-beta02
 [1.1.1-beta01]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0...1.1.1-beta01
 [1.0.0]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-beta01...v1.0.0
 [1.0.0-beta01]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha04...v1.0.0-beta01
