@@ -3,6 +3,7 @@
 ### Fixed
 
 - Fixed Preference DataStore saving (#38)
+- Test fixtures are excluded from publication (#32)
 
 ### Housekeeping
 
