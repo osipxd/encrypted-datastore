@@ -17,11 +17,11 @@ private class OkioToJvmSerializerAdapter<T>(
         get() = delegate.defaultValue
 
     override suspend fun readFrom(input: InputStream): T {
-        return delegate.readFrom(input.source().buffer())
+        return input.source().buffer().use { delegate.readFrom(it) }
     }
 
     override suspend fun writeTo(t: T, output: OutputStream) {
-        delegate.writeTo(t, output.sink().buffer())
+        output.sink().buffer().use { delegate.writeTo(t, it) }
     }
 }
 
