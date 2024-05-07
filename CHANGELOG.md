@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+### Fixed
+
+- Fixed Preference DataStore saving (#38)
+
 ### Housekeeping
 
 - Added sample application
