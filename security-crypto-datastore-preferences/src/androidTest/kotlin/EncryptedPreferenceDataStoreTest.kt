@@ -2,7 +2,6 @@ package io.github.osipxd.security.crypto
 
 import android.content.Context
 import androidx.datastore.core.DataStore
-import androidx.datastore.dataStoreFile
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
@@ -11,16 +10,12 @@ import androidx.datastore.preferences.preferencesDataStoreFile
 import androidx.security.crypto.EncryptedFile
 import androidx.security.crypto.MasterKeys
 import androidx.test.core.app.ApplicationProvider
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.cancel
-import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Test
 import kotlin.test.assertEquals
+import kotlin.time.Duration.Companion.seconds
 
 internal class EncryptedPreferenceDataStoreTest {
 
@@ -30,7 +25,7 @@ internal class EncryptedPreferenceDataStoreTest {
     private val file = context.preferencesDataStoreFile(DATASTORE_NAME)
 
     @Test
-    fun encryptAndDecrypt(): Unit = runBlocking {
+    fun encryptAndDecrypt(): Unit = runTest {
         val dataKey = stringPreferencesKey("testKey")
         val plaintext = "Plaintext"
 
@@ -50,7 +45,7 @@ internal class EncryptedPreferenceDataStoreTest {
     private val Context.dataStore by encryptedPreferencesDataStore(DATASTORE_NAME, scope = dataStoreScope)
 
     @Test
-    fun encryptUsingFactoryAndDecryptUsingDelegate() = runBlocking {
+    fun encryptUsingFactoryAndDecryptUsingDelegate() = runTest {
         val dataKey = stringPreferencesKey("testKey")
         val plaintext = "I can use both factory and delegate"
 
@@ -65,6 +60,10 @@ internal class EncryptedPreferenceDataStoreTest {
         val preferences = context.dataStore.data.first()
 
         assertEquals(plaintext, preferences[dataKey])
+    }
+
+    private fun runTest(block: suspend CoroutineScope.() -> Unit) {
+        runBlocking { withTimeout(5.seconds, block) }
     }
 
     @After

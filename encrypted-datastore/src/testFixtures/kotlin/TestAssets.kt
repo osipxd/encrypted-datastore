@@ -1,13 +1,6 @@
 package io.github.osipxd.datastore.encrypted
 
-import com.google.crypto.tink.Aead
-import com.google.crypto.tink.InsecureSecretKeyAccess
-import com.google.crypto.tink.KeyTemplate
-import com.google.crypto.tink.KeyTemplates
-import com.google.crypto.tink.KeysetHandle
-import com.google.crypto.tink.StreamingAead
-import com.google.crypto.tink.TinkJsonProtoKeysetFormat
-import com.google.crypto.tink.proto.Keyset
+import com.google.crypto.tink.*
 import java.nio.file.Path
 import kotlin.io.path.*
 
@@ -31,13 +24,14 @@ object TestAssets {
 
     private fun generateKeyset(keyTemplate: KeyTemplate, path: Path? = null): KeysetHandle {
         val keyset = KeysetHandle.generateNew(keyTemplate)
-        val serializedKeyset = TinkJsonProtoKeysetFormat.serializeKeyset(keyset, InsecureSecretKeyAccess.get())
 
         if (path != null) {
             if (path.notExists()) {
                 path.createParentDirectories()
                 path.createFile()
             }
+
+            val serializedKeyset = TinkJsonProtoKeysetFormat.serializeKeyset(keyset, InsecureSecretKeyAccess.get())
             path.writeText(serializedKeyset)
         }
 
