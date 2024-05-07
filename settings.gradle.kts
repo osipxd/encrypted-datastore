@@ -19,3 +19,5 @@ include(
     "security-crypto-datastore",
     "security-crypto-datastore-preferences",
 )
+
+include(":sample")

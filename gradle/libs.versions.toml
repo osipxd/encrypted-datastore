@@ -5,6 +5,12 @@ datastore = "1.1.1"
 infrastructure = "0.18.1"
 junit = "5.10.2"
 
+# Sample
+core = "1.13.1"
+lifecycle-runtime = "2.7.0"
+activity = "1.9.0"
+compose-bom = "2024.05.00"
+
 [libraries]
 
 kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
@@ -28,3 +34,13 @@ infrastructure-publish = { module = "com.redmadrobot.build:infrastructure-publis
 
 junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
+
+# Sample
+core = { group = "androidx.core", name = "core-ktx", version.ref = "core" }
+lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime" }
+activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity" }
+compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "compose-bom" }
+compose-ui = { module = "androidx.compose.ui:ui" }
+compose-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+compose-material3 = { group = "androidx.compose.material3", name = "material3" }
