@@ -26,4 +26,4 @@ private class OkioToJvmSerializerAdapter<T>(
 }
 
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
-public fun <T> OkioSerializer<T>.asJvmSerialiser(): Serializer<T> = OkioToJvmSerializerAdapter(this)
+public fun <T> OkioSerializer<T>.asJvmSerializer(): Serializer<T> = OkioToJvmSerializerAdapter(this)

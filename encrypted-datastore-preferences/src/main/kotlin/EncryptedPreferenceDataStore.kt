@@ -12,8 +12,7 @@ import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.PreferencesSerializer
 import com.google.crypto.tink.Aead
-import com.google.crypto.tink.StreamingAead
-import io.github.osipxd.datastore.encrypted.internal.asJvmSerialiser
+import io.github.osipxd.datastore.encrypted.internal.asJvmSerializer
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -37,7 +36,7 @@ public fun PreferenceDataStoreFactory.createEncrypted(
 ): DataStore<Preferences> {
     @Suppress("DEPRECATION")
     val delegate = DataStoreFactory.create(
-        serializer = PreferencesSerializer.asJvmSerialiser().encrypted(aead),
+        serializer = PreferencesSerializer.asJvmSerializer().encrypted(aead),
         corruptionHandler = corruptionHandler,
         migrations = migrations,
         scope = scope,
@@ -48,7 +47,7 @@ public fun PreferenceDataStoreFactory.createEncrypted(
 }
 
 @Deprecated("Use PreferencesSerializer directly", level = DeprecationLevel.HIDDEN)
-public val PreferencesSerializer: Serializer<Preferences> = PreferencesSerializer.asJvmSerialiser()
+public val PreferencesSerializer: Serializer<Preferences> = PreferencesSerializer.asJvmSerializer()
 
 /** Exposes PreferenceDataStore constructor. */
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
