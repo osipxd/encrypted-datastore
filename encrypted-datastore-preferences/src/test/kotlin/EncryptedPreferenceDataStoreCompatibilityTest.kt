@@ -9,12 +9,11 @@ import com.google.crypto.tink.Aead
 import com.google.crypto.tink.aead.AeadConfig
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
-import kotlin.io.path.name
 import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-internal class EncryptedPreferenceDataStoreTest {
+internal class EncryptedPreferenceDataStoreCompatibilityTest {
 
     private val dataStorePath = TestAssets.path("encryptedDataStore.preferences_pb")
     private val dataKey = stringPreferencesKey("testKey")
@@ -25,11 +24,11 @@ internal class EncryptedPreferenceDataStoreTest {
     }
 
     @Test
-    fun `decrypt data ecrypted with previous version`() {
+    fun `decrypt data encrypted with previous version`() {
         val dataStore = createDataStore(TestAssets.loadAead())
         val decryptedData = runBlocking { dataStore.data.first() }
 
-        assertEquals(expected = dataValue, actual = decryptedData.get(dataKey))
+        assertEquals(expected = dataValue, actual = decryptedData[dataKey])
     }
 
     @Test

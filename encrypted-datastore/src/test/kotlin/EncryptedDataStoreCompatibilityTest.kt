@@ -2,19 +2,16 @@ package io.github.osipxd.datastore.encrypted
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.core.DataStoreFactory
-import androidx.datastore.core.Serializer
 import com.google.crypto.tink.StreamingAead
 import com.google.crypto.tink.streamingaead.StreamingAeadConfig
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
-import java.io.InputStream
-import java.io.OutputStream
 import kotlin.io.path.name
 import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
-internal class EncryptedDataStoreTest {
+internal class EncryptedDataStoreCompatibilityTest {
 
     private val dataStorePath = TestAssets.path("encryptedDataStore")
     private val data = "Decrypt me if you can!"
@@ -24,7 +21,7 @@ internal class EncryptedDataStoreTest {
     }
 
     @Test
-    fun `decrypt data ecrypted with previous version`() {
+    fun `decrypt data encrypted with previous version`() {
         val dataStore = createDataStore(TestAssets.loadStreamingAead())
         val decryptedData = runBlocking { dataStore.data.first() }
 

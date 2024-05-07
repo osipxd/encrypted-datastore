@@ -1,8 +1,6 @@
 package io.github.osipxd.datastore.encrypted
 
 import androidx.datastore.core.Serializer
-import com.google.crypto.tink.KeyTemplates
-import com.google.crypto.tink.KeysetHandle
 import com.google.crypto.tink.StreamingAead
 import com.google.crypto.tink.streamingaead.StreamingAeadConfig
 import kotlinx.coroutines.runBlocking
@@ -19,8 +17,7 @@ internal class EncryptingSerializerTest {
     init {
         StreamingAeadConfig.register()
 
-        streamingAead = KeysetHandle.generateNew(KeyTemplates.get("AES256_GCM_HKDF_4KB"))
-            .getPrimitive(StreamingAead::class.java)
+        streamingAead = TestAssets.generateStreamingAead()
     }
 
     @Test
