@@ -12,7 +12,7 @@ import androidx.datastore.preferences.core.PreferencesSerializer
 import androidx.security.crypto.EncryptedFile
 import io.github.osipxd.datastore.encrypted.PreferenceDataStore
 import io.github.osipxd.datastore.encrypted.checkPreferenceDataStoreFileExtension
-import io.github.osipxd.datastore.encrypted.internal.asJvmSerialiser
+import io.github.osipxd.datastore.encrypted.internal.asJvmSerializer
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -69,7 +69,7 @@ public fun PreferenceDataStoreFactory.createEncrypted(
     produceFile: () -> EncryptedFile,
 ): DataStore<Preferences> {
     val delegate = DataStoreFactory.createEncrypted(
-        serializer = PreferencesSerializer.asJvmSerialiser(),
+        serializer = PreferencesSerializer.asJvmSerializer(),
         corruptionHandler = corruptionHandler,
         migrations = migrations,
         scope = scope,
