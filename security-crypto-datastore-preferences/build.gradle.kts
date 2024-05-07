@@ -14,8 +14,8 @@ android {
 }
 
 dependencies {
-    implementation(project(":encrypted-datastore-preferences"))
-    api(project(":security-crypto-datastore"))
+    implementation(projects.encryptedDatastorePreferences)
+    api(projects.securityCryptoDatastore)
     api(libs.androidx.datastore.preferences)
 
     androidTestImplementation(kotlin("test", version = libs.versions.kotlin.get()))

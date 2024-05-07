@@ -9,7 +9,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":encrypted-datastore"))
+    implementation(projects.encryptedDatastore)
     api(libs.androidx.datastore)
     api(libs.androidx.security.crypto)
 }
