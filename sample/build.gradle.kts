@@ -1,6 +1,7 @@
 plugins {
     com.android.application
     org.jetbrains.kotlin.android
+    alias(libs.plugins.kotlinx.serialization)
 }
 
 android {
@@ -19,11 +20,6 @@ android {
         }
     }
 
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-        }
-    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
@@ -47,13 +43,16 @@ android {
 dependencies {
     implementation(libs.core)
     implementation(libs.lifecycle.runtime)
+    implementation(libs.lifecycle.viewmodel.compose)
     implementation(libs.activity.compose)
     implementation(platform(libs.compose.bom))
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.graphics)
     implementation(libs.compose.ui.tooling.preview)
     implementation(libs.compose.material3)
+    implementation(libs.compose.material.icons.extended)
 
     implementation(projects.securityCryptoDatastore)
     implementation(projects.securityCryptoDatastorePreferences)
+    implementation(libs.kotlinx.serialization.json)
 }

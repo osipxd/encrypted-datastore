@@ -1,6 +1,8 @@
 ## [Unreleased]
 
-*No changes*
+### Housekeeping
+
+- Added sample application
 
 ## [1.1.1-beta01] - 2024.05.04
 
