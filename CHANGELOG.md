@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+### Added
+
+- Enforce version alignment between the library and DataStore using BOM (#45)
+
 ### Housekeeping
 
 - Publication migrated to [com.vanniktech:gradle-maven-publish-plugin](https://github.com/vanniktech/gradle-maven-publish-plugin)
