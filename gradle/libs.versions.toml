@@ -3,6 +3,7 @@
 kotlin = "1.9.23"
 datastore = "1.1.1"
 infrastructure = "0.18.1"
+mavenPublishPlugin = "0.28.0"
 junit = "5.10.2"
 
 # Sample
@@ -32,6 +33,7 @@ tink = "com.google.crypto.tink:tink-android:1.13.0"
 infrastructure-android = { module = "com.redmadrobot.build:infrastructure-android", version.ref = "infrastructure" }
 infrastructure-kotlin = { module = "com.redmadrobot.build:infrastructure-kotlin", version.ref = "infrastructure" }
 infrastructure-publish = { module = "com.redmadrobot.build:infrastructure-publish", version.ref = "infrastructure" }
+mavenPublishPlugin = { module = "com.vanniktech:gradle-maven-publish-plugin", version.ref = "mavenPublishPlugin" }
 
 junit-bom = { module = "org.junit:junit-bom", version.ref = "junit" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }

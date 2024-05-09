@@ -1,6 +1,8 @@
 ## [Unreleased]
 
-*No changes*
+### Housekeeping
+
+- Publication migrated to [com.vanniktech:gradle-maven-publish-plugin](https://github.com/vanniktech/gradle-maven-publish-plugin)
 
 ## [1.1.1-beta02] - 2024.05.07
 
