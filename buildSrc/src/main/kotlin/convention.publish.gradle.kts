@@ -1,15 +1,34 @@
-import com.redmadrobot.build.dsl.ossrh
+import com.redmadrobot.build.dsl.developer
+import com.redmadrobot.build.dsl.mit
+import com.redmadrobot.build.dsl.setGitHubProject
+import com.vanniktech.maven.publish.SonatypeHost
 import org.gradle.api.plugins.internal.JavaPluginHelper
 import org.gradle.internal.component.external.model.TestFixturesSupport
 import org.gradle.jvm.component.internal.DefaultJvmSoftwareComponent
 
 plugins {
-    id("com.redmadrobot.publish")
+    com.vanniktech.maven.publish
+    signing
 }
 
-publishing {
-    repositories {
-        ossrh { credentials(PasswordCredentials::class) }
+signing {
+    useGpgCmd()
+}
+
+mavenPublishing {
+    publishToMavenCentral(SonatypeHost.S01)
+    signAllPublications()
+
+    coordinates(artifactId = project.name)
+
+    pom {
+        setGitHubProject("osipxd/encrypted-datastore")
+        licenses {
+            mit()
+        }
+        developers {
+            developer(id = "osipxd", name = "Osip Fatkullin", email = "osip.fatkullin@gmail.com")
+        }
     }
 }
 

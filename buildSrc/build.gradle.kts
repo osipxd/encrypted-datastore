@@ -10,6 +10,7 @@ dependencies {
     implementation(libs.infrastructure.android)
     implementation(libs.infrastructure.kotlin)
     implementation(libs.infrastructure.publish)
+    implementation(libs.mavenPublishPlugin)
 
     implementation(libs.kotlinx.binaryCompatibilityValidator)
 }
