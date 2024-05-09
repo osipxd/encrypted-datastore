@@ -1,6 +1,6 @@
 import com.redmadrobot.build.dsl.kotlinCompile
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import internal.java
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     id("org.jetbrains.kotlinx.binary-compatibility-validator")
@@ -14,6 +14,10 @@ kotlinCompile {
 
 java {
     targetCompatibility = JavaVersion.VERSION_11
+}
+
+dependencies {
+    "api"(platform(project(":encrypted-datastore-bom")))
 }
 
 apiValidation {

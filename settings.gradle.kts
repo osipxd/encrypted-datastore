@@ -14,6 +14,7 @@ dependencyResolutionManagement {
 }
 
 include(
+    "encrypted-datastore-bom",
     "encrypted-datastore",
     "encrypted-datastore-preferences",
     "security-crypto-datastore",
