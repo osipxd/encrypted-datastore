@@ -5,7 +5,7 @@ plugins {
 val datastoreVersion = libs.versions.datastore.get()
 allprojects {
     group = "io.github.osipxd"
-    version = "$datastoreVersion-beta02"
+    version = "$datastoreVersion-beta03"
 }
 
 redmadrobot {
