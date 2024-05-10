@@ -1,5 +1,9 @@
 ## [Unreleased]
 
+*No changes*
+
+## [1.1.1-beta03] - 2024.05.13
+
 ### Added
 
 - Enforce version alignment between the library and DataStore using BOM (#45)
@@ -177,9 +181,10 @@ To continue use it, change the dependency module in your build script:
 - gradle-infrastructure `0.12.1` → `0.17`
 - Migrate dependencies to version catalogs
 
-[unreleased]: https://github.com/osipxd/encrypted-datastore/compare/1.1.1-beta02...main
-[1.1.1-beta02]: https://github.com/osipxd/encrypted-datastore/compare/v1.1.1-beta01...1.1.1-beta02
-[1.1.1-beta01]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0...1.1.1-beta01
+[unreleased]: https://github.com/osipxd/encrypted-datastore/compare/v1.1.1-beta03...main
+[1.1.1-beta03]: https://github.com/osipxd/encrypted-datastore/compare/v1.1.1-beta02...v1.1.1-beta03
+[1.1.1-beta02]: https://github.com/osipxd/encrypted-datastore/compare/v1.1.1-beta01...v1.1.1-beta02
+[1.1.1-beta01]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0...v1.1.1-beta01
 [1.0.0]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-beta01...v1.0.0
 [1.0.0-beta01]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha04...v1.0.0-beta01
 [1.0.0-alpha04]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha03...v1.0.0-alpha04
