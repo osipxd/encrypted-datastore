@@ -22,6 +22,9 @@ mavenPublishing {
     coordinates(artifactId = project.name)
 
     pom {
+        name = project.name
+        description = project.description
+
         setGitHubProject("osipxd/encrypted-datastore")
         licenses {
             mit()
@@ -38,4 +41,11 @@ plugins.withId("org.gradle.java-test-fixtures") {
     val feature = component.features.getByName(TestFixturesSupport.TEST_FIXTURES_FEATURE_NAME)
     component.withVariantsFromConfiguration(feature.apiElementsConfiguration) { skip() }
     component.withVariantsFromConfiguration(feature.runtimeElementsConfiguration) { skip() }
+
+    // Workaround to not publish test fixtures sources added by com.vanniktech.maven.publish plugin
+    // TODO: Remove as soon as https://github.com/vanniktech/gradle-maven-publish-plugin/issues/779 closed
+    afterEvaluate {
+        val configuration = project.configurations[feature.sourceSet.sourcesElementsConfigurationName]
+        component.withVariantsFromConfiguration(configuration) { skip() }
+    }
 }
