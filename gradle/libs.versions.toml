@@ -11,7 +11,7 @@ core = "1.13.1"
 lifecycle = "2.8.0"
 activity = "1.9.0"
 compose-bom = "2024.05.00"
-kotlinx-serialization = "1.6.3"
+kotlinx-serialization = "1.7.0"
 
 [libraries]
 
