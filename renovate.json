@@ -3,5 +3,19 @@
   "extends": [
     "config:recommended",
     ":semanticCommitScopeDisabled"
+  ],
+  "packageRules": [
+    {
+      "description": "Group together dependencies for sample",
+      "matchPackagePrefixes": [
+        "androidx.activity:",
+        "androidx.core:",
+        "androidx.compose",
+        "androidx.lifecycle:",
+        "org.jetbrains.kotlinx:kotlinx-serialization",
+        "org.jetbrains.kotlin.plugin.serialization"
+      ],
+      "groupName": "sample-dependencies"
+    }
   ]
 }
