@@ -3,7 +3,7 @@
 kotlin = "1.9.23"
 datastore = "1.1.1"
 infrastructure = "0.18.1"
-mavenPublishPlugin = "0.28.0"
+mavenPublishPlugin = "0.29.0"
 junit = "5.10.2"
 
 # Sample
