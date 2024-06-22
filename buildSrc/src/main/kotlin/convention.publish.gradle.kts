@@ -2,9 +2,6 @@ import com.redmadrobot.build.dsl.developer
 import com.redmadrobot.build.dsl.mit
 import com.redmadrobot.build.dsl.setGitHubProject
 import com.vanniktech.maven.publish.SonatypeHost
-import org.gradle.api.plugins.internal.JavaPluginHelper
-import org.gradle.internal.component.external.model.TestFixturesSupport
-import org.gradle.jvm.component.internal.DefaultJvmSoftwareComponent
 
 plugins {
     com.vanniktech.maven.publish
@@ -37,15 +34,13 @@ mavenPublishing {
 
 // Exclude test fixtures from publication, as we use it only internally
 plugins.withId("org.gradle.java-test-fixtures") {
-    val component = JavaPluginHelper.getJavaComponent(project) as DefaultJvmSoftwareComponent
-    val feature = component.features.getByName(TestFixturesSupport.TEST_FIXTURES_FEATURE_NAME)
-    component.withVariantsFromConfiguration(feature.apiElementsConfiguration) { skip() }
-    component.withVariantsFromConfiguration(feature.runtimeElementsConfiguration) { skip() }
+    val component = components["java"] as AdhocComponentWithVariants
+    component.withVariantsFromConfiguration(configurations["testFixturesApiElements"]) { skip() }
+    component.withVariantsFromConfiguration(configurations["testFixturesRuntimeElements"]) { skip() }
 
     // Workaround to not publish test fixtures sources added by com.vanniktech.maven.publish plugin
     // TODO: Remove as soon as https://github.com/vanniktech/gradle-maven-publish-plugin/issues/779 closed
     afterEvaluate {
-        val configuration = project.configurations[feature.sourceSet.sourcesElementsConfigurationName]
-        component.withVariantsFromConfiguration(configuration) { skip() }
+        component.withVariantsFromConfiguration(configurations["testFixturesSourcesElements"]) { skip() }
     }
 }
