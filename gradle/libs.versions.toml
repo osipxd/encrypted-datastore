@@ -26,7 +26,7 @@ androidx-datastore-core = { module = "androidx.datastore:datastore-core", versio
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }
 androidx-datastore-preferences-core = { module = "androidx.datastore:datastore-preferences-core", version.ref = "datastore" }
 androidx-security-crypto = "androidx.security:security-crypto:1.0.0"
-androidx-test-core = "androidx.test:core:1.5.0"
+androidx-test-core = "androidx.test:core:1.6.1"
 androidx-test-runner = "androidx.test:runner:1.5.2"
 tink = "com.google.crypto.tink:tink-android:1.13.0"
 
