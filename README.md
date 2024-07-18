@@ -4,7 +4,7 @@
 Extensions to store DataStore into `EncryptedFile`.
 
 > [!WARNING]
-> This library will continue to be maintained, but active development will continue until an official DataStore encryption solution is released by Google.
+> This library will continue to be maintained, but active development will cease when an official DataStore encryption solution is released by Google.
 > Support the development of this feature by voting for it on the issue tracker: [b/167697691](https://issuetracker.google.com/issues/167697691).
 
 ---
