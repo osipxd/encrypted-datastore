@@ -4,7 +4,7 @@ kotlin = "1.9.23"
 datastore = "1.1.1"
 infrastructure = "0.18.1"
 mavenPublishPlugin = "0.28.0"
-junit = "5.10.2"
+junit = "5.10.3"
 
 # Sample
 core = "1.13.1"
