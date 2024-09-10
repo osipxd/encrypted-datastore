@@ -1,8 +1,15 @@
 ## [Unreleased]
 
-*No changes*
+### Dependencies
 
-## [1.1.1-beta03] - 2024.05.13
+- Kotlin `1.9.23` → `2.0.20`
+
+### Housekeeping
+
+- Update dependencies in sample project
+- Drop usage of gradle-infrastructure plugins
+
+## [1.1.1-beta03] – 2024.05.13
 
 ### Added
 
@@ -12,7 +19,7 @@
 
 - Publication migrated to [com.vanniktech:gradle-maven-publish-plugin](https://github.com/vanniktech/gradle-maven-publish-plugin)
 
-## [1.1.1-beta02] - 2024.05.07
+## [1.1.1-beta02] – 2024.05.07
 
 ### Fixed
 
@@ -23,7 +30,7 @@
 
 - Added sample application
 
-## [1.1.1-beta01] - 2024.05.04
+## [1.1.1-beta01] – 2024.05.04
 
 ### DataStore 1.1.0+
 
@@ -46,7 +53,7 @@ The research will take some time, so I've released a beta version compatible wit
 
 - Added a binary compatibility validator to prevent unintentional breaks in binary compatibility
 
-## [1.0.0] - 2024.04.17
+## [1.0.0] – 2024.04.17
 
 ### Delegates to create encrypted DataStores
 
@@ -91,7 +98,7 @@ val Context.dataStore by encryptedDataStore(
 - Update AGP to 8.3.2
 - Move `PreferenceDataStoreHack.java` into `encrypted-datastore-preferences` module
 
-## [1.0.0-beta01] - 2023.02.26
+## [1.0.0-beta01] – 2023.02.26
 
 ### Fixed
 
@@ -102,14 +109,14 @@ val Context.dataStore by encryptedDataStore(
 
 - Update Gradle to 7.6.1
 
-## [1.0.0-alpha04] - 2022.12.19
+## [1.0.0-alpha04] – 2022.12.19
 
 ### Fixed
 
 - Fixed the case when data can not be read if output stream was not closed in serializer (#10)
 - Added default value for parameter `encryptionOptions` in `PreferenceDataStoreFactory.createEncrypted` (#12)
 
-## [1.0.0-alpha03] - 2022.11.18
+## [1.0.0-alpha03] – 2022.11.18
 
 #### More high-level library `security-crypto-datastore`
 
@@ -150,9 +157,9 @@ Old extension-function with `Aead` is not planned to be removed yet, but for all
 > You can not use `StreamingAead` to decrypt data encrypted with `Aead`,
 > so you can not just replace `Aead` with `StreamingAead` without migration.
 > To not lose your previously encrypted data, you have three options:
-> 1. **Migration** - add fallback for `StreamingAead` using function `StreamingAead.withDecryptionFallback(Aead)`
-> 2. **Do nothing** - continue to use `Aead`
-> 3. **Destructive migration** - specify `CorruptionHandler` to replace old content with something else
+> 1. **Migration** – add fallback for `StreamingAead` using function `StreamingAead.withDecryptionFallback(Aead)`
+> 2. **Do nothing** – continue to use `Aead`
+> 3. **Destructive migration** – specify `CorruptionHandler` to replace old content with something else
 
 #### New module `encrypted-datastore-preferences`
 
