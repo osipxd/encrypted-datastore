@@ -18,7 +18,7 @@ kotlinx-serialization = "1.6.3"
 kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 kotlinx-binaryCompatibilityValidator = "org.jetbrains.kotlinx:binary-compatibility-validator:0.14.0"
 
-android-gradlePlugin = "com.android.tools.build:gradle:8.4.0"
+android-gradlePlugin = "com.android.tools.build:gradle:8.6.1"
 android-cacheFix = "gradle.plugin.org.gradle.android:android-cache-fix-gradle-plugin:3.0.1"
 
 androidx-datastore = { module = "androidx.datastore:datastore", version.ref = "datastore" }
