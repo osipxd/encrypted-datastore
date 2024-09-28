@@ -1,7 +1,7 @@
 [versions]
 
 kotlin = "2.0.20"
-tink = "1.13.0"
+tink = "1.15.0"
 androidx-datastore = "1.1.1"
 androidx-security-crypto = "1.0.0"
 androidx-test-core = "1.6.1"
