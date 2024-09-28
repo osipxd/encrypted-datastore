@@ -3,9 +3,11 @@
 ### Dependencies
 
 - Kotlin `1.9.23` → `2.0.20`
+- [Tink](https://github.com/tink-crypto/tink-java/releases/tag/v1.15.0) `1.13.0` → `1.15.0`
 
 ### Housekeeping
 
+- Compile against Android SDK 35
 - Update dependencies in sample project
 - Drop usage of gradle-infrastructure plugins
 
