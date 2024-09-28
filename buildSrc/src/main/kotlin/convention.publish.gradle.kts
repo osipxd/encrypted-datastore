@@ -4,7 +4,7 @@ import com.redmadrobot.build.dsl.setGitHubProject
 import com.vanniktech.maven.publish.SonatypeHost
 
 plugins {
-    com.vanniktech.maven.publish
+    id("com.vanniktech.maven.publish")
     signing
 }
 

@@ -1,5 +1,5 @@
 plugins {
-    id("com.redmadrobot.kotlin-library")
+    kotlin("jvm")
     id("convention.library.common")
     id("convention.publish")
     id("com.android.lint")

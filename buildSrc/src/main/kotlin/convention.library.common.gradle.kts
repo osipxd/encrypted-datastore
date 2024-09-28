@@ -1,19 +1,17 @@
-import com.redmadrobot.build.dsl.kotlinCompile
-import internal.java
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.dsl.kotlinExtension
 
 plugins {
     id("org.jetbrains.kotlinx.binary-compatibility-validator")
 }
 
-kotlinCompile {
-    compilerOptions {
-        jvmTarget = JvmTarget.JVM_11
-    }
+with(kotlinExtension) {
+    jvmToolchain(11)
+
+    explicitApi()
 }
 
-java {
-    targetCompatibility = JavaVersion.VERSION_11
+tasks.withType<Test>().configureEach {
+    useJUnitPlatform()
 }
 
 dependencies {

@@ -1,37 +1,39 @@
 [versions]
 
-kotlin = "1.9.23"
-datastore = "1.1.1"
-infrastructure = "0.18.1"
-mavenPublishPlugin = "0.28.0"
-junit = "5.10.2"
+kotlin = "2.0.20"
+tink = "1.13.0"
+androidx-datastore = "1.1.1"
+androidx-security-crypto = "1.0.0"
+androidx-test-core = "1.6.1"
+androidx-test-runner = "1.6.2"
+junit = "5.11.1"
+infrastructure = "0.19.1"
+mavenPublishPlugin = "0.29.0"
+android-gradlePlugin = "8.6.1"
 
 # Sample
 core = "1.13.1"
-lifecycle = "2.8.0"
-activity = "1.9.0"
-compose-bom = "2024.05.00"
-kotlinx-serialization = "1.6.3"
+lifecycle = "2.8.6"
+activity = "1.9.2"
+compose-bom = "2024.09.02"
+kotlinx-serialization = "1.7.3"
 
 [libraries]
 
 kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
-kotlinx-binaryCompatibilityValidator = "org.jetbrains.kotlinx:binary-compatibility-validator:0.14.0"
+kotlinx-binaryCompatibilityValidator = "org.jetbrains.kotlinx:binary-compatibility-validator:0.16.3"
 
-android-gradlePlugin = "com.android.tools.build:gradle:8.4.0"
-android-cacheFix = "gradle.plugin.org.gradle.android:android-cache-fix-gradle-plugin:3.0.1"
+android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref="android-gradlePlugin" }
 
-androidx-datastore = { module = "androidx.datastore:datastore", version.ref = "datastore" }
-androidx-datastore-core = { module = "androidx.datastore:datastore-core", version.ref = "datastore" }
-androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastore" }
-androidx-datastore-preferences-core = { module = "androidx.datastore:datastore-preferences-core", version.ref = "datastore" }
-androidx-security-crypto = "androidx.security:security-crypto:1.0.0"
-androidx-test-core = "androidx.test:core:1.5.0"
-androidx-test-runner = "androidx.test:runner:1.5.2"
-tink = "com.google.crypto.tink:tink-android:1.13.0"
+androidx-datastore = { module = "androidx.datastore:datastore", version.ref = "androidx-datastore" }
+androidx-datastore-core = { module = "androidx.datastore:datastore-core", version.ref = "androidx-datastore" }
+androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "androidx-datastore" }
+androidx-datastore-preferences-core = { module = "androidx.datastore:datastore-preferences-core", version.ref = "androidx-datastore" }
+androidx-security-crypto = { module = "androidx.security:security-crypto", version.ref = "androidx-security-crypto" }
+androidx-test-core = { module = "androidx.test:core", version.ref = "androidx-test-core" }
+androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidx-test-runner" }
+tink = { module = "com.google.crypto.tink:tink-android", version.ref = "tink" }
 
-infrastructure-android = { module = "com.redmadrobot.build:infrastructure-android", version.ref = "infrastructure" }
-infrastructure-kotlin = { module = "com.redmadrobot.build:infrastructure-kotlin", version.ref = "infrastructure" }
 infrastructure-publish = { module = "com.redmadrobot.build:infrastructure-publish", version.ref = "infrastructure" }
 mavenPublishPlugin = { module = "com.vanniktech:gradle-maven-publish-plugin", version.ref = "mavenPublishPlugin" }
 
@@ -53,3 +55,4 @@ kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 
 [plugins]
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

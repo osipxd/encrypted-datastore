@@ -2,16 +2,17 @@ plugins {
     com.android.application
     org.jetbrains.kotlin.android
     alias(libs.plugins.kotlinx.serialization)
+    alias(libs.plugins.kotlin.compose)
 }
 
 android {
     namespace = "com.example.sample"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.sample"
         minSdk = 23
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -20,25 +21,14 @@ android {
         }
     }
 
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.13"
-    }
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
 }
+
+kotlin.jvmToolchain(11)
 
 dependencies {
     implementation(libs.core)
