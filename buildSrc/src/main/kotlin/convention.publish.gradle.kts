@@ -1,10 +1,9 @@
-import com.redmadrobot.build.dsl.developer
-import com.redmadrobot.build.dsl.mit
-import com.redmadrobot.build.dsl.setGitHubProject
+import com.redmadrobot.build.dsl.*
 import com.vanniktech.maven.publish.SonatypeHost
 
 plugins {
     id("com.vanniktech.maven.publish")
+    id("org.jetbrains.kotlinx.binary-compatibility-validator")
     signing
 }
 
@@ -43,4 +42,12 @@ plugins.withId("org.gradle.java-test-fixtures") {
     afterEvaluate {
         component.withVariantsFromConfiguration(configurations["testFixturesSourcesElements"]) { skip() }
     }
+}
+
+apiValidation {
+    ignoredPackages.add("io.github.osipxd.datastore.encrypted.internal")
+    nonPublicMarkers.add("androidx.annotation.RestrictTo")
+
+    // Check only the project to which BCV is applied
+    ignoredProjects.addAll(subprojects.map { it.name })
 }
