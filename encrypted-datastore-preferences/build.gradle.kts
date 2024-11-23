@@ -16,6 +16,9 @@ kotlin.sourceSets {
         api(projects.encryptedDatastore)
         api(libs.androidx.datastore.preferences)
     }
+    commonJvmTest.dependencies {
+        implementation(projects.encryptedDatastore.testFixtures)
+    }
 }
 
 // Make internal declarations from `datastore-preferences-core` accessible for this module

@@ -1,6 +1,7 @@
 plugins {
     convention.library.kmp
     convention.publish
+    convention.testFixtures
 }
 
 description = "Extensions to encrypt DataStore using Tink"

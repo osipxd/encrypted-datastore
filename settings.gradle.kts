@@ -14,11 +14,12 @@ dependencyResolutionManagement {
 }
 
 include(
-    "encrypted-datastore-bom",
-    "encrypted-datastore",
-    "encrypted-datastore-preferences",
-    "security-crypto-datastore",
-    "security-crypto-datastore-preferences",
+    ":encrypted-datastore-bom",
+    ":encrypted-datastore",
+    ":encrypted-datastore:testFixtures",
+    ":encrypted-datastore-preferences",
+    ":security-crypto-datastore",
+    ":security-crypto-datastore-preferences",
 )
 
 include(":sample")
