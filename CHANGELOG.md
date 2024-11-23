@@ -1,5 +1,13 @@
 ## [Unreleased]
 
+### Publish `encrypted-datastore` as KMP library
+
+As `security-crypto-datastore` artifacts are [going to be deprecated](https://github.com/osipxd/encrypted-datastore/issues/31),
+`encrypted-datastore` artifacts are published as a KMP library.
+It has only two targets yet: JVM and Android.
+This change was made to use the same dependency for JVM and Android projects
+and to prepare the library for possible support for iOS target in the future.
+
 ### Dependencies
 
 - Kotlin `1.9.23` → `2.0.20`
