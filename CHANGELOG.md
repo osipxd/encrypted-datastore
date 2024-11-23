@@ -10,6 +10,7 @@
 - Compile against Android SDK 35
 - Update dependencies in sample project
 - Drop usage of gradle-infrastructure plugins
+- Use `-Xfriendly-paths` compiler option to access internal entities from the androidx.datastore library, delete `PreferenceDataStoreHack`
 
 ## [1.1.1-beta03] – 2024.05.13
 

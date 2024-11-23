@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
+
 plugins {
     convention.library.kotlin
 }
@@ -14,5 +16,10 @@ dependencies {
     testImplementation(testFixtures(projects.encryptedDatastore))
 }
 
-// All Java classes here are package-private, so don't generate javadoc
-tasks.getByName("javadoc") { enabled = false }
+// Make internal declarations from `datastore-preferences-core` accessible for this module
+tasks.withType<KotlinJvmCompile>().configureEach {
+    val datastoreLibrary = project.provider {
+        libraries.first { it.name.startsWith("datastore-preferences-core") }.absoluteFile
+    }
+    friendPaths.from(datastoreLibrary)
+}
