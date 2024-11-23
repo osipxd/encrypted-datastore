@@ -1,16 +1,24 @@
 plugins {
-    convention.library.kotlin
-    `java-test-fixtures`
+    convention.library.kmp
+    convention.publish
 }
 
 description = "Extensions to encrypt DataStore using Tink"
 
-dependencies {
-    api(kotlin("stdlib", version = libs.versions.kotlin.get()))
-    api(libs.androidx.datastore.core)
-    api(libs.tink)
+android {
+    namespace = "$group.datastore.encrypted"
+}
 
-    testImplementation(kotlin("test", version = libs.versions.kotlin.get()))
-    testImplementation(platform(libs.junit.bom))
-    testImplementation(libs.junit.jupiter)
+kotlin.sourceSets {
+    commonJvmMain.dependencies {
+        api(kotlin("stdlib", version = libs.versions.kotlin.get()))
+        api(libs.androidx.datastore)
+        compileOnly(libs.tink)
+    }
+    jvmMain.dependencies {
+        api(libs.tink)
+    }
+    androidMain.dependencies {
+        api(libs.tink.android)
+    }
 }

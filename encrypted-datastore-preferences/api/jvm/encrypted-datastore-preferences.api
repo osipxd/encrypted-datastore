@@ -1,0 +1,6 @@
+public final class io/github/osipxd/datastore/encrypted/EncryptedPreferenceDataStoreKt {
+	public static final fun createEncrypted (Landroidx/datastore/preferences/core/PreferenceDataStoreFactory;Lcom/google/crypto/tink/Aead;Landroidx/datastore/core/handlers/ReplaceFileCorruptionHandler;Ljava/util/List;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function0;)Landroidx/datastore/core/DataStore;
+	public static synthetic fun createEncrypted$default (Landroidx/datastore/preferences/core/PreferenceDataStoreFactory;Lcom/google/crypto/tink/Aead;Landroidx/datastore/core/handlers/ReplaceFileCorruptionHandler;Ljava/util/List;Lkotlinx/coroutines/CoroutineScope;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Landroidx/datastore/core/DataStore;
+	public static final synthetic fun getPreferencesSerializer ()Landroidx/datastore/core/Serializer;
+}
+

@@ -32,7 +32,8 @@ androidx-datastore-preferences-core = { module = "androidx.datastore:datastore-p
 androidx-security-crypto = { module = "androidx.security:security-crypto", version.ref = "androidx-security-crypto" }
 androidx-test-core = { module = "androidx.test:core", version.ref = "androidx-test-core" }
 androidx-test-runner = { module = "androidx.test:runner", version.ref = "androidx-test-runner" }
-tink = { module = "com.google.crypto.tink:tink-android", version.ref = "tink" }
+tink = { module = "com.google.crypto.tink:tink", version.ref = "tink" }
+tink-android = { module = "com.google.crypto.tink:tink-android", version.ref = "tink" }
 
 infrastructure-publish = { module = "com.redmadrobot.build:infrastructure-publish", version.ref = "infrastructure" }
 mavenPublishPlugin = { module = "com.vanniktech:gradle-maven-publish-plugin", version.ref = "mavenPublishPlugin" }

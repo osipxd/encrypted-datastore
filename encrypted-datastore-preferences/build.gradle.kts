@@ -1,19 +1,21 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 
 plugins {
-    convention.library.kotlin
+    convention.library.kmp
+    convention.publish
 }
 
 description = "Extensions to encrypt DataStore Preferences using Tink"
 
-dependencies {
-    api(projects.encryptedDatastore)
-    api(libs.androidx.datastore.preferences.core)
+android {
+    namespace = "$group.datastore.encrypted.preferences"
+}
 
-    testImplementation(kotlin("test", version = libs.versions.kotlin.get()))
-    testImplementation(platform(libs.junit.bom))
-    testImplementation(libs.junit.jupiter)
-    testImplementation(testFixtures(projects.encryptedDatastore))
+kotlin.sourceSets {
+    commonJvmMain.dependencies {
+        api(projects.encryptedDatastore)
+        api(libs.androidx.datastore.preferences)
+    }
 }
 
 // Make internal declarations from `datastore-preferences-core` accessible for this module
