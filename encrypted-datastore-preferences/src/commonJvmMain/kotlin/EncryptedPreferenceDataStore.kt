@@ -52,7 +52,7 @@ public val PreferencesSerializer: Serializer<Preferences> = PreferencesSerialize
 /** Exposes PreferenceDataStore constructor. */
 @RestrictTo(RestrictTo.Scope.LIBRARY_GROUP)
 public fun PreferenceDataStore(delegate: DataStore<Preferences>): DataStore<Preferences> =
-    PreferenceDataStoreHack.wrap(delegate)
+    androidx.datastore.preferences.core.PreferenceDataStore(delegate)
 
 // Equals to androidx.datastore.preferences.PreferencesSerializer.fileExtension
 private const val FILE_EXTENSION = "preferences_pb"
