@@ -1,5 +1,6 @@
 # Ignore IDEA configs
-.idea/
+.idea/**
+!.idea/externalDependencies.xml
 
 # Gradle
 .gradle/
