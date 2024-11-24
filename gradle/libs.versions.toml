@@ -15,7 +15,7 @@ android-gradlePlugin = "8.7.2"
 core = "1.15.0"
 lifecycle = "2.8.7"
 activity = "1.9.3"
-compose-bom = "2024.10.00"
+compose-bom = "2024.11.00"
 kotlinx-serialization = "1.7.3"
 
 [libraries]
