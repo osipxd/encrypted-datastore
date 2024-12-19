@@ -21,7 +21,7 @@ kotlinx-serialization = "1.7.3"
 [libraries]
 
 kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
-kotlinx-binaryCompatibilityValidator = "org.jetbrains.kotlinx:binary-compatibility-validator:0.16.3"
+kotlinx-binaryCompatibilityValidator = "org.jetbrains.kotlinx:binary-compatibility-validator:0.17.0"
 
 android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref="android-gradlePlugin" }
 
