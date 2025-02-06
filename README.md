@@ -1,9 +1,10 @@
 # Encrypted DataStore
-[![Version](https://img.shields.io/maven-central/v/io.github.osipxd/encrypted-datastore?style=flat-square)][mavenCentral] [![License](https://img.shields.io/github/license/osipxd/encrypted-datastore?style=flat-square)][license]
+[![Version](https://img.shields.io/maven-central/v/com.dayanruben/encrypted-datastore?style=flat-square)][mavenCentral] [![License](https://img.shields.io/github/license/dayanruben/encrypted-datastore?style=flat-square)][license]
 
 Extensions to store DataStore into `EncryptedFile`.
 
 > [!WARNING]
+> Special thanks to the original [author](https://github.com/osipxd) for laying the foundation of this [repository](https://github.com/osipxd/encrypted-datastore), your work continues to inspire.
 > This library will continue to be maintained, but active development will cease when an official DataStore encryption solution is released by Google.
 > Support the development of this feature by voting for it on the issue tracker: [b/167697691](https://issuetracker.google.com/issues/167697691).
 
@@ -20,9 +21,9 @@ repositories {
 }
 
 dependencies {
-    implementation("io.github.osipxd:security-crypto-datastore:1.1.1-beta03")
+    implementation("com.dayanruben:security-crypto-datastore:1.1.1-beta03")
     // Or, if you want to use Preferences DataStore:
-    implementation("io.github.osipxd:security-crypto-datastore-preferences:1.1.1-beta03")
+    implementation("com.dayanruben:security-crypto-datastore-preferences:1.1.1-beta03")
 }
 ```
 
@@ -125,8 +126,8 @@ Change the dependency in build script:
 
 ```diff
  dependencies {
--    implementation("io.github.osipxd:encrypted-datastore:...")
-+    implementation("io.github.osipxd:security-crypto-datastore:...")
+-    implementation("com.dayanruben:encrypted-datastore:...")
++    implementation("com.dayanruben:security-crypto-datastore:...")
  }
 ```
 
@@ -193,10 +194,10 @@ val dataStore = DataStoreFactory.createEncrypted(
 [MIT][license]
 
 
-[mavenCentral]: https://search.maven.org/artifact/io.github.osipxd/encrypted-datastore
+[mavenCentral]: https://search.maven.org/artifact/com.dayanruben/encrypted-datastore
 [license]: LICENSE
 
 [tink]: https://github.com/tink-crypto/tink-java
 [secured-datastore]: https://github.com/Fi5t/secured-datastore
 [fi5t]: https://github.com/Fi5t
-[hack]: encrypted-datastore-preferences/src/main/java/io/github/osipxd/datastore/encrypted/PreferenceDataStoreHack.java
+[hack]: encrypted-datastore-preferences/src/main/java/com/dayanruben/datastore/encrypted/PreferenceDataStoreHack.java
