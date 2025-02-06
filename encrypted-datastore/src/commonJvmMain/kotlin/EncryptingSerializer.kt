@@ -1,12 +1,12 @@
-package io.github.osipxd.datastore.encrypted
+package com.dayanruben.datastore.encrypted
 
 import androidx.datastore.core.CorruptionException
 import androidx.datastore.core.Serializer
 import androidx.datastore.core.handlers.ReplaceFileCorruptionHandler
 import com.google.crypto.tink.Aead
 import com.google.crypto.tink.StreamingAead
-import io.github.osipxd.datastore.encrypted.migration.isProbablyEncryptedWithAeadException
-import io.github.osipxd.datastore.encrypted.migration.withDecryptionFallback
+import com.dayanruben.datastore.encrypted.migration.isProbablyEncryptedWithAeadException
+import com.dayanruben.datastore.encrypted.migration.withDecryptionFallback
 import java.io.*
 import java.security.GeneralSecurityException
 
@@ -59,7 +59,7 @@ internal class AeadEncryptingSerializer<T>(
  *
  * **Deprecated** in favor of version with [StreamingAead].
  * Consider to migrate to `security-crypto-datastore` library:
- * [Migration guide](https://github.com/osipxd/encrypted-datastore#migration).
+ * [Migration guide](https://github.com/dayanruben/encrypted-datastore#migration).
  *
  * You can not use `StreamingAead` to decrypt data encrypted with `Aead`,
  * so you can not just replace `Aead` with `StreamingAead` without migration.
@@ -72,7 +72,7 @@ internal class AeadEncryptingSerializer<T>(
     "Use version of this method with StreamingAead instead of Aead",
     ReplaceWith(
         "this.encrypted(streamingAead.withDecryptionFallback(aead))",
-        "io.github.osipxd.datastore.encrypted.migration.withDecryptionFallback"
+        "com.dayanruben.datastore.encrypted.migration.withDecryptionFallback"
     ),
 )
 public fun <T> Serializer<T>.encrypted(aead: Aead): EncryptingSerializer<T> =
@@ -100,7 +100,7 @@ internal class StreamingAeadEncryptingSerializer<T>(
                 "Can not decrypt DataStore using StreamingAead.\n" +
                         "Probably you have not closed output stream in the `writeTo` method of the serializer or \n" +
                         "if you had used library before make sure you have added fallback to Aead:\n" +
-                        "https://github.com/osipxd/encrypted-datastore#migration",
+                        "https://github.com/dayanruben/encrypted-datastore#migration",
                 cause = this,
             )
         } else {

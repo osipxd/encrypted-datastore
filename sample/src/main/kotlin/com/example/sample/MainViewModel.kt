@@ -5,8 +5,8 @@ import android.content.Context
 import androidx.compose.runtime.Stable
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import io.github.osipxd.security.crypto.encryptedDataStore
-import io.github.osipxd.security.crypto.encryptedPreferencesDataStore
+import com.dayanruben.security.crypto.encryptedDataStore
+import com.dayanruben.security.crypto.encryptedPreferencesDataStore
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 

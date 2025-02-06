@@ -2,7 +2,7 @@
 
 ### Publish `encrypted-datastore` as KMP library
 
-As `security-crypto-datastore` artifacts are [going to be deprecated](https://github.com/osipxd/encrypted-datastore/issues/31),
+As `security-crypto-datastore` artifacts are going to be deprecated,
 `encrypted-datastore` artifacts are published as a KMP library.
 It has only two targets yet: JVM and Android.
 This change was made to use the same dependency for JVM and Android projects
@@ -56,7 +56,7 @@ The research will take some time, so I've released a beta version compatible wit
 
 ### Changes
 
-- **Potentially breaking change:** The field `io.github.osipxd.datastore.encrypted.PreferencesSerializer` has been hidden from the public API.
+- **Potentially breaking change:** The field `com.dayanruben.datastore.encrypted.PreferencesSerializer` has been hidden from the public API.
   Instead, directly use the object `PreferencesSerializer`, which is now publicly available starting with the `datastore:1.1.0` release.
 - Added the `@RestrictTo(LIBRARY_GROUP)` annotation to public members that are intended for internal use only, ensuring they are not used externally.
 
@@ -176,12 +176,12 @@ Old extension-function with `Aead` is not planned to be removed yet, but for all
 
 :warning: **Breaking change:** 
 
-All stuff related to Preference DataStore was moved to `io.github.osipxd:encrypted-datastore-preferences`.
+All stuff related to Preference DataStore was moved to `com.dayanruben:encrypted-datastore-preferences`.
 To continue use it, change the dependency module in your build script:
 
 ```diff
--implmentation("io.github.osipxd:encrypted-datastore:...")
-+implmentation("io.github.osipxd:encrypted-datastore-preferences:...")
+-implmentation("com.dayanruben:encrypted-datastore:...")
++implmentation("com.dayanruben:encrypted-datastore-preferences:...")
 ```
 
 ### Fixed
@@ -198,12 +198,4 @@ To continue use it, change the dependency module in your build script:
 - Gradle `7.2` → `7.5.1`
 - gradle-infrastructure `0.12.1` → `0.17`
 - Migrate dependencies to version catalogs
-
-[unreleased]: https://github.com/osipxd/encrypted-datastore/compare/v1.1.1-beta03...main
-[1.1.1-beta03]: https://github.com/osipxd/encrypted-datastore/compare/v1.1.1-beta02...v1.1.1-beta03
-[1.1.1-beta02]: https://github.com/osipxd/encrypted-datastore/compare/v1.1.1-beta01...v1.1.1-beta02
-[1.1.1-beta01]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0...v1.1.1-beta01
-[1.0.0]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-beta01...v1.0.0
-[1.0.0-beta01]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha04...v1.0.0-beta01
-[1.0.0-alpha04]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha03...v1.0.0-alpha04
-[1.0.0-alpha03]: https://github.com/osipxd/encrypted-datastore/compare/v1.0.0-alpha02...v1.0.0-alpha03
+- 

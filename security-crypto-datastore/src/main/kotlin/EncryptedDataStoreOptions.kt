@@ -1,4 +1,4 @@
-package io.github.osipxd.security.crypto
+package com.dayanruben.security.crypto
 
 import com.google.crypto.tink.Aead
 

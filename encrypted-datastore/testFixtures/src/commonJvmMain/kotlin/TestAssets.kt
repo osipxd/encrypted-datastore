@@ -1,4 +1,4 @@
-package io.github.osipxd.datastore.encrypted
+package com.dayanruben.datastore.encrypted
 
 import com.google.crypto.tink.*
 import java.nio.file.Path

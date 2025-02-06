@@ -1,6 +1,6 @@
 
 val datastoreVersion = libs.versions.androidx.datastore.get()
 allprojects {
-    group = "io.github.osipxd"
+    group = "com.dayanruben"
     version = "$datastoreVersion-beta03"
 }

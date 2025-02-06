@@ -1,6 +1,6 @@
 @file:Suppress("FunctionName")
 
-package io.github.osipxd.datastore.encrypted
+package com.dayanruben.datastore.encrypted
 
 import androidx.annotation.RestrictTo
 import androidx.datastore.core.DataMigration
@@ -8,11 +8,12 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.core.DataStoreFactory
 import androidx.datastore.core.Serializer
 import androidx.datastore.core.handlers.ReplaceFileCorruptionHandler
+import androidx.datastore.preferences.core.PreferenceDataStore
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.PreferencesSerializer
 import com.google.crypto.tink.Aead
-import io.github.osipxd.datastore.encrypted.internal.asJvmSerializer
+import com.dayanruben.datastore.encrypted.internal.asJvmSerializer
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -23,7 +24,7 @@ import java.io.File
  *
  * **Deprecated.**
  * It is recommended to migrate to `security-crypto-datastore` library:
- * [Migration guide](https://github.com/osipxd/encrypted-datastore#migration)
+ * [Migration guide](https://github.com/dayanruben/encrypted-datastore#migration)
  */
 @Deprecated("Use version of this method with StreamingAead instead of Aead")
 @Suppress("UnusedReceiverParameter")

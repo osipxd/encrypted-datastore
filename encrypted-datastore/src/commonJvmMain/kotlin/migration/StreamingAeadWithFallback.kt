@@ -1,8 +1,8 @@
-package io.github.osipxd.datastore.encrypted.migration
+package com.dayanruben.datastore.encrypted.migration
 
 import com.google.crypto.tink.Aead
 import com.google.crypto.tink.StreamingAead
-import io.github.osipxd.datastore.encrypted.newDecryptedStream
+import com.dayanruben.datastore.encrypted.newDecryptedStream
 import java.io.IOException
 import java.io.InputStream
 

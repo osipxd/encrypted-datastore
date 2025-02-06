@@ -1,4 +1,4 @@
-package io.github.osipxd.security.crypto
+package com.dayanruben.security.crypto
 
 import androidx.security.crypto.EncryptedFile
 import androidx.security.crypto.file

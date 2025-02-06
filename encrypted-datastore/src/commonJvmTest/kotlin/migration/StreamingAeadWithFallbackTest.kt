@@ -1,4 +1,4 @@
-package io.github.osipxd.datastore.encrypted.migration
+package com.dayanruben.datastore.encrypted.migration
 
 import com.google.crypto.tink.Aead
 import com.google.crypto.tink.KeyTemplates
@@ -6,7 +6,7 @@ import com.google.crypto.tink.KeysetHandle
 import com.google.crypto.tink.StreamingAead
 import com.google.crypto.tink.aead.AeadConfig
 import com.google.crypto.tink.streamingaead.StreamingAeadConfig
-import io.github.osipxd.datastore.encrypted.TestAssets
+import com.dayanruben.datastore.encrypted.TestAssets
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.api.io.TempDir
 import java.io.IOException

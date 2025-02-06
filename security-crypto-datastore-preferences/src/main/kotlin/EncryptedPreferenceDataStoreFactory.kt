@@ -1,6 +1,6 @@
 @file:Suppress("UnusedReceiverParameter")
 
-package io.github.osipxd.security.crypto
+package com.dayanruben.security.crypto
 
 import androidx.datastore.core.DataMigration
 import androidx.datastore.core.DataStore
@@ -10,9 +10,9 @@ import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.PreferencesSerializer
 import androidx.security.crypto.EncryptedFile
-import io.github.osipxd.datastore.encrypted.PreferenceDataStore
-import io.github.osipxd.datastore.encrypted.checkPreferenceDataStoreFileExtension
-import io.github.osipxd.datastore.encrypted.internal.asJvmSerializer
+import com.dayanruben.datastore.encrypted.PreferenceDataStore
+import com.dayanruben.datastore.encrypted.checkPreferenceDataStoreFileExtension
+import com.dayanruben.datastore.encrypted.internal.asJvmSerializer
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob

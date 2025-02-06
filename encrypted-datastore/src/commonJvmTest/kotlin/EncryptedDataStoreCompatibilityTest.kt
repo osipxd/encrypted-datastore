@@ -1,4 +1,4 @@
-package io.github.osipxd.datastore.encrypted
+package com.dayanruben.datastore.encrypted
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.core.DataStoreFactory

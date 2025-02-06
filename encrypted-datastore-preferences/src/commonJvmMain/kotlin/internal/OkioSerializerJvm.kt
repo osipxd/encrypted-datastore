@@ -1,4 +1,4 @@
-package io.github.osipxd.datastore.encrypted.internal
+package com.dayanruben.datastore.encrypted.internal
 
 import androidx.annotation.RestrictTo
 import androidx.datastore.core.Serializer

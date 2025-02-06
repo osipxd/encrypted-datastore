@@ -1,6 +1,6 @@
 @file:Suppress("UnusedReceiverParameter")
 
-package io.github.osipxd.security.crypto
+package com.dayanruben.security.crypto
 
 import androidx.datastore.core.DataMigration
 import androidx.datastore.core.DataStore
@@ -12,8 +12,8 @@ import androidx.security.crypto.file
 import androidx.security.crypto.streamingAead
 import com.google.crypto.tink.Aead
 import com.google.crypto.tink.StreamingAead
-import io.github.osipxd.datastore.encrypted.encrypted
-import io.github.osipxd.datastore.encrypted.migration.withDecryptionFallback
+import com.dayanruben.datastore.encrypted.encrypted
+import com.dayanruben.datastore.encrypted.migration.withDecryptionFallback
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
