@@ -12,27 +12,28 @@ signing {
 }
 
 mavenPublishing {
-    publishToMavenCentral(SonatypeHost.S01)
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
     signAllPublications()
 
     coordinates(artifactId = project.name)
 
     pom {
         name = project.name
-        description = project.description
+        description = "Extensions to store DataStore in EncryptedFile"
 
-        setGitHubProject("osipxd/encrypted-datastore")
+        setGitHubProject("dayanruben/encrypted-datastore")
         licenses {
             mit()
         }
         developers {
             developer(id = "osipxd", name = "Osip Fatkullin", email = "osip.fatkullin@gmail.com")
+            developer(id = "dayanruben", name = "Dayan Ruben", email = "mail@dayanruben.com")
         }
     }
 }
 
 apiValidation {
-    ignoredPackages.add("io.github.osipxd.datastore.encrypted.internal")
+    ignoredPackages.add("com.dayanruben.datastore.encrypted.internal")
     nonPublicMarkers.add("androidx.annotation.RestrictTo")
 
     // Check only the project to which BCV is applied
