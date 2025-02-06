@@ -21,15 +21,15 @@ repositories {
 }
 
 dependencies {
-    implementation("com.dayanruben:security-crypto-datastore:1.1.1-beta03")
+    implementation("com.dayanruben:security-crypto-datastore:1.1.2-beta04")
     // Or, if you want to use Preferences DataStore:
-    implementation("com.dayanruben:security-crypto-datastore-preferences:1.1.1-beta03")
+    implementation("com.dayanruben:security-crypto-datastore-preferences:1.1.2-beta04")
 }
 ```
 
 > **Dependencies:**
 > - `security-crypto` [1.0.0](https://developer.android.com/jetpack/androidx/releases/security#1.0.0)
-> - `datastore` [1.1.1](https://developer.android.com/jetpack/androidx/releases/datastore#1.1.1)
+> - `datastore` [1.1.2](https://developer.android.com/jetpack/androidx/releases/datastore#1.1.2)
 > - `tink` [1.13.0](https://github.com/tink-crypto/tink-java/releases/tag/v1.13.0)
 
 > [!NOTE]
