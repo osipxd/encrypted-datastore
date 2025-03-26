@@ -29,8 +29,8 @@ dependencies {
 
 > **Dependencies:**
 > - `security-crypto` [1.0.0](https://developer.android.com/jetpack/androidx/releases/security#1.0.0)
-> - `datastore` [1.1.3](https://developer.android.com/jetpack/androidx/releases/datastore#1.1.3)
-> - `tink` [1.16.0](https://github.com/tink-crypto/tink-java/releases/tag/v1.16.0)
+> - `datastore` [1.1.4](https://developer.android.com/jetpack/androidx/releases/datastore#1.1.4)
+> - `tink` [1.17.0](https://github.com/tink-crypto/tink-java/releases/tag/v1.17.0)
 
 > [!NOTE]
 > Ensure that the version of this library aligns with the DataStore library version used in your project.
