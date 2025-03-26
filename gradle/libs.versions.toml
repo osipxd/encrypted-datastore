@@ -1,6 +1,6 @@
 [versions]
 
-kotlin = "2.1.10"
+kotlin = "2.1.20"
 tink = "1.16.0"
 androidx-datastore = "1.1.4"
 androidx-security-crypto = "1.0.0"
