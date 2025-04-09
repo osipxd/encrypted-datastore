@@ -21,9 +21,9 @@ repositories {
 }
 
 dependencies {
-    implementation("com.dayanruben:security-crypto-datastore:1.1.4-0.1")
+    implementation("com.dayanruben:security-crypto-datastore:1.1.4-0.2")
     // Or, if you want to use Preferences DataStore:
-    implementation("com.dayanruben:security-crypto-datastore-preferences:1.1.4-0.1")
+    implementation("com.dayanruben:security-crypto-datastore-preferences:1.1.4-0.2")
 }
 ```
 
