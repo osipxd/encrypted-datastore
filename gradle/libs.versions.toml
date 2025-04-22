@@ -9,7 +9,7 @@ androidx-test-runner = "1.6.2"
 junit = "5.12.2"
 infrastructure = "0.19.1"
 mavenPublishPlugin = "0.31.0"
-android-gradlePlugin = "8.9.1"
+android-gradlePlugin = "8.9.2"
 
 # Sample
 core = "1.15.0"
